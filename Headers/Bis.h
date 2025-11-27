@@ -6,7 +6,7 @@ typedef int infotype;
 typedef struct bis *adrBis;
 struct bis{
     infotype kapasitas;
-    
+    adrBis next;
 };
 
 #endif

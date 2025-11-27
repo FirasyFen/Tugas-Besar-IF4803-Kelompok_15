@@ -5,7 +5,7 @@ using namespace std;
 typedef int infotype;
 typedef struct penumpang *adrPenumpang;
 struct penumpang{
-    
+    adrPenumpang next;
 };
 
 #endif
