@@ -2,4 +2,8 @@
 #define MAIN_H_INLUDED
 using namespace std;
 
+typedef int infotype;
+struct main{
+    
+};
 #endif
