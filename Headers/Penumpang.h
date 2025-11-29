@@ -22,7 +22,7 @@ struct ListPenumpang{
 
 adrPenumpang createElemenPenumpang(string tujuan, string idtiket);
 void insertPenumpang(ListPenumpang &p, adrPenumpang q);
-void deletePenumpang();
+void deletePenumpang(ListPenumpang &p, string idtiket);
 adrPenumpang searchPenumpang(ListPenumpang &p, string idtiket);
 void displayPenumpang(ListPenumpang p);
 
