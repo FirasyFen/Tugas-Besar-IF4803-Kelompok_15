@@ -23,7 +23,11 @@ struct ListPenumpang{
 adrPenumpang createElemenPenumpang(string tujuan, string idtiket);
 void insertPenumpang(ListPenumpang &p, adrPenumpang q);
 void deletePenumpang(ListPenumpang &p, string idtiket);
+void ubahPenumpang(ListPenumpang &L, string idtiket, string tujuanBaru);
 adrPenumpang searchPenumpang(ListPenumpang &p, string idtiket);
 void displayPenumpang(ListPenumpang p);
-
+void deleteAllPenumpang(ListPenumpang &L);
+int countPenumpang(ListPenumpang L);
+bool isEmptyPenumpang(ListPenumpang L);
+void displayPenumpangTujuan(ListPenumpang L, string tujuan);
 #endif
