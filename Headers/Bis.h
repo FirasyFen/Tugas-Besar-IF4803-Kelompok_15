@@ -20,8 +20,15 @@ struct ListBis{
 };
 void createListBis(ListBis &L);
 adrBis createElmBis(string idBis, int kapasitas, string rute);
-void insertElmBis(ListBis &L, adrBis P);
-void deleteElmBis(ListBis &L, adrBis &P);
-adrBis findBis(ListBis L, int idBis);
+bool isEmpty(ListBis L);
+void insertFirstBis(ListBis &L, adrBis P);
+void insertLastBis(ListBis &L, adrBis P);
+void insertAfterBis(ListBis &L, adrBis Prec, adrBis P);
+void deleteFirstBis(ListBis &L, adrBis &P);
+void deleteLastBis(ListBis &L, adrBis &P);
+void deleteAfterBis(ListBis &L, adrBis Prec, adrBis &P);
+adrBis findBis(ListBis L, string idBis);
+int countBis(ListBis L);
 void displayBis(ListBis L);
+adrBis findBisByRute(ListBis L, string rute);
 #endif
