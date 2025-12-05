@@ -10,11 +10,11 @@ void insertPenumpangFirst(ListPenumpang &p, adrPenumpang q){
 
 }
 
-void insertPenumpangAfter(ListPenumpang &p, adrPenumpang q){
+void insertPenumpangAfter(ListPenumpang &p, string notiket, adrPenumpang q){
 
 }
 
-void insertPenumpangLast(ListPenumpang &p, string   adrPenumpang q){
+void insertPenumpangLast(ListPenumpang &p, adrPenumpang q){
 
 }
 
