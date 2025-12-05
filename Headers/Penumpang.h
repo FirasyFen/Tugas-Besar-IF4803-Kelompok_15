@@ -21,10 +21,12 @@ struct ListPenumpang{
 };
 
 adrPenumpang createElemenPenumpang(string tujuan, string idtiket);
-void insertPenumpang(ListPenumpang &p, adrPenumpang q);
+void insertPenumpangFirst(ListPenumpang &p, adrPenumpang q);
+void insertPenumpangAfter(ListPenumpang &p, adrPenumpang q);
+void insertPenumpangLast(ListPenumpang &p, string  adrPenumpang q);
 void deletePenumpang(ListPenumpang &p, string idtiket);
 void ubahPenumpang(ListPenumpang &L, string idtiket, string tujuanBaru);
-adrPenumpang searchPenumpang(ListPenumpang &p, string idtiket);
+adrPenumpang searchPenumpang(ListPenumpang &p, string notiket, adrPenumpang idtiket);
 void displayPenumpang(ListPenumpang p);
 void deleteAllPenumpang(ListPenumpang &L);
 int countPenumpang(ListPenumpang L);
