@@ -14,7 +14,7 @@ void insertPenumpangAfter(ListPenumpang &p, adrPenumpang q){
 
 }
 
-void insertPenumpangLast(ListPenumpang &p, string  adrPenumpang q){
+void insertPenumpangLast(ListPenumpang &p, string   adrPenumpang q){
 
 }
 
