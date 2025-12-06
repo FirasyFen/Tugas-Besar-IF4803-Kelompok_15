@@ -69,3 +69,11 @@ adrPenumpang searchPenumpang(adrPenumpang p, string idtiket) {
     }
     return nullptr;
 }
+
+void deleteAllPenumpang(ListPenumpang &L){
+
+}
+
+int countPenumpang(ListPenumpang L){
+
+}
