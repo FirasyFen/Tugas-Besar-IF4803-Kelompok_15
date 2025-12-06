@@ -2,15 +2,15 @@
 #include "Penumpang.h"
 #include "Bis.h"
 using namespace std;
-void insertPenumpangFirst(ListPenumpang &p, adrPenumpang q){
+void insertPenumpangFirst(ListPenumpang &L, adrPenumpang p){
     
 }
 
-void insertPenumpangAfter(ListPenumpang &p, adrPenumpang prec, adrPenumpang q){
+void insertPenumpangAfter(ListPenumpang &L, adrPenumpang prec, adrPenumpang p){
 
 }
 
-void deletePenumpangLast(ListPenumpang &p, adrPenumpang &l){
+void deletePenumpangLast(ListPenumpang &L, adrPenumpang &p){
 
 }
 
@@ -18,7 +18,7 @@ void ubahPenumpang(ListPenumpang &L, string idtiket, string tujuanBaru){
 
 }
 
-void displayPenumpang(ListPenumpang p){
+void displayPenumpang(ListPenumpang L){
 
 }
 
