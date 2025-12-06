@@ -21,9 +21,17 @@ struct ListPenumpang{
 };
 
 adrPenumpang createElemenPenumpang(string tujuan, string idtiket);
-void insertPenumpang(ListPenumpang &p, adrPenumpang q);
-void deletePenumpang(ListPenumpang &p, string idtiket);
-adrPenumpang searchPenumpang(ListPenumpang &p, string idtiket);
-void displayPenumpang(ListPenumpang p);
-
+void insertPenumpangFirst(ListPenumpang &L, adrPenumpang p);
+void insertPenumpangAfter(ListPenumpang &L, adrPenumpang prec, adrPenumpang p);
+void insertPenumpangLast(ListPenumpang &L,  adrPenumpang p);
+void deletePenumpangFirst(ListPenumpang &L, adrPenumpang &p);
+void deletePenumpangAfter(ListPenumpang &L, adrPenumpang prec, adrPenumpang &p);
+void deletePenumpangLast(ListPenumpang &L, adrPenumpang &p);
+void ubahPenumpang(ListPenumpang &L, string idtiket, string tujuanBaru);
+adrPenumpang searchPenumpang(ListPenumpang &p, string notiket, adrPenumpang idtiket);
+void displayPenumpang(ListPenumpang L);
+void deleteAllPenumpang(ListPenumpang &L);
+int countPenumpang(ListPenumpang L);
+bool isEmptyPenumpang(ListPenumpang L);
+void displayPenumpangTujuan(ListPenumpang L, string tujuan);
 #endif
