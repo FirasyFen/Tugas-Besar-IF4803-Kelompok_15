@@ -4,6 +4,7 @@
 using namespace std;
 
 typedef struct elemenPenumpang *adrPenumpang;
+
 struct penumpang{
     string tujuan;
     string idtiket;
@@ -15,23 +16,18 @@ struct elemenPenumpang{
     adrPenumpang prev;
 };
 
-struct ListPenumpang{
-    adrPenumpang first;
-    adrPenumpang last;
-};
-
 adrPenumpang createElemenPenumpang(string tujuan, string idtiket);
-void insertPenumpangFirst(ListPenumpang &L, adrPenumpang p);
-void insertPenumpangAfter(ListPenumpang &L, adrPenumpang prec, adrPenumpang p);
-void insertPenumpangLast(ListPenumpang &L,  adrPenumpang p);
-void deletePenumpangFirst(ListPenumpang &L, adrPenumpang &p);
-void deletePenumpangAfter(ListPenumpang &L, adrPenumpang prec, adrPenumpang &p);
-void deletePenumpangLast(ListPenumpang &L, adrPenumpang &p);
-void ubahPenumpang(ListPenumpang &L, string idtiket, string tujuanBaru);
-adrPenumpang searchPenumpang(ListPenumpang &p, string notiket, adrPenumpang idtiket);
-void displayPenumpang(ListPenumpang L);
-void deleteAllPenumpang(ListPenumpang &L);
-int countPenumpang(ListPenumpang L);
-bool isEmptyPenumpang(ListPenumpang L);
-void displayPenumpangTujuan(ListPenumpang L, string tujuan);
+void insertPenumpangFirst(adrPenumpang &L, adrPenumpang p);
+void insertPenumpangAfter(adrPenumpang &L, adrPenumpang prec, adrPenumpang p);
+void insertPenumpangLast(adrPenumpang &L,  adrPenumpang p);
+void deletePenumpangFirst(adrPenumpang &L, adrPenumpang &p);
+void deletePenumpangAfter(adrPenumpang &L, adrPenumpang prec, adrPenumpang &p);
+void deletePenumpangLast(adrPenumpang &L, adrPenumpang &p);
+void ubahPenumpang(adrPenumpang &L, string idtiket, string tujuanBaru);
+adrPenumpang searchPenumpang(adrPenumpang &p, string notiket, adrPenumpang idtiket);
+void displayPenumpang(adrPenumpang L);
+void deleteAllPenumpang(adrPenumpang &L);
+int countPenumpang(adrPenumpang L);
+bool isEmptyPenumpang(adrPenumpang L);
+void displayPenumpangTujuan(adrPenumpang L, string tujuan);
 #endif
