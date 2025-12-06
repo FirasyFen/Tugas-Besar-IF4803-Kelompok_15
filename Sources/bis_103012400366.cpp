@@ -17,7 +17,7 @@ adrBis createElmBis(string idBis, int kapasitas, string rute) {
     return P;
 }
 
-void insertLast(ListBis &L, adrBis P) {
+void insertLastBis(ListBis &L, adrBis P){
    adrBis Q;
     if (L.first == nullptr) {
         L.first = P;
@@ -28,38 +28,35 @@ void insertLast(ListBis &L, adrBis P) {
         }
         Q->next = P;
     }
-}
+};
 
-void deleteElmBis(ListBis &L, adrBis &P) {
-    adrPenumpang pen;
-    if (L.first == nullptr) {
-        cout << "List bis kosong." << endl;
-        return;
-    }
-    
-    
-    pen = P->firstPenumpang;
-    while (pen != nullptr) {
-        adrPenumpang delPen = pen;
-        pen = pen->next;
-        delete delPen;
-    }
-    P->firstPenumpang = nullptr;
-    
-    if (L.first == P) {
-        L.first = P->next;
+void deleteFirstBis(ListBis &L, adrBis &P){
+    if (isEmpty(L)) {
+        P = nullptr;
+        cout << "List kosong" << endl;
     } else {
-        adrBis Q = L.first;
-        while (Q != nullptr && Q->next != P) {
+        P = L.first;
+        L.first = P->next;
+        P->next = nullptr;
+    }
+};
+void deleteLastBis(ListBis &L, adrBis &P){
+    adrBis Q;
+    if (isEmpty(L)) {
+        P = nullptr;
+        cout << "List kosong" << endl;
+    }  else if (L.first->next == nullptr) { // hanya 1 elemen
+        P = L.first;
+        L.first = nullptr;
+    } else {
+        Q = L.first;
+        while (Q->next->next != nullptr){
             Q = Q->next;
         }
-        if (Q != nullptr) {
-            Q->next = P->next;
-        }
+        P = Q->next;
+        Q->next = nullptr;
     }
-    delete P;
-    P = nullptr;
-}
+};
 
 adrBis findBis(ListBis L, string idBis) {
     adrBis P = L.first;
@@ -70,20 +67,4 @@ adrBis findBis(ListBis L, string idBis) {
         P = P->next;
     }
     return nullptr;
-}
-
-void displayBis(ListBis L) {
-    adrBis P = L.first;
-    int i = 1;
-    if (P == nullptr) {
-        cout << "Tidak ada data bis." << endl;
-    } else {
-        while (P != nullptr) {
-            cout << i << ". ID Bis: " << P->info.idBis 
-                 << " | Kapasitas: " << P->info.kapasitas 
-                 << " | Rute: " << P->info.rute << endl;
-            P = P->next;
-            i++;
-        }
-    }
 }
