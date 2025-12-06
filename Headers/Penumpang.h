@@ -17,12 +17,12 @@ struct elemenPenumpang{
 };
 
 adrPenumpang createElemenPenumpang(string tujuan, string idtiket);
-void insertPenumpangFirst(adrPenumpang &L, adrPenumpang p);
-void insertPenumpangAfter(adrPenumpang &L, adrPenumpang prec, adrPenumpang p);
-void insertPenumpangLast(adrPenumpang &L,  adrPenumpang p);
-void deletePenumpangFirst(adrPenumpang &L, adrPenumpang &p);
-void deletePenumpangAfter(adrPenumpang &L, adrPenumpang prec, adrPenumpang &p);
-void deletePenumpangLast(adrPenumpang &L, adrPenumpang &p);
+void insertPenumpangFirst(adrBis &L, adrPenumpang p);
+void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p);
+void insertPenumpangLast(adrBis &L,  adrPenumpang p);
+void deletePenumpangFirst(adrBis &L, adrPenumpang &p);
+void deletePenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang &p);
+void deletePenumpangLast(adrBis &L, adrPenumpang &p);
 void ubahPenumpang(adrPenumpang &L, string idtiket, string tujuanBaru);
 adrPenumpang searchPenumpang(adrPenumpang &p, string notiket, adrPenumpang idtiket);
 void displayPenumpang(adrPenumpang L);
@@ -30,4 +30,5 @@ void deleteAllPenumpang(adrPenumpang &L);
 int countPenumpang(adrPenumpang L);
 bool isEmptyPenumpang(adrPenumpang L);
 void displayPenumpangTujuan(adrPenumpang L, string tujuan);
+
 #endif
