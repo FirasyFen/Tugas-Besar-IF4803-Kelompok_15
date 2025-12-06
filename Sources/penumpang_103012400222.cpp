@@ -2,15 +2,15 @@
 #include "Penumpang.h"
 #include "Bis.h"
 using namespace std;
-void insertPenumpangFirst(adrPenumpang &L, adrPenumpang p){
+void insertPenumpangFirst(adrBis &L, adrPenumpang p){
     
 }
 
-void insertPenumpangAfter(adrPenumpang &L, adrPenumpang prec, adrPenumpang p){
+void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p){
 
 }
 
-void deletePenumpangLast(adrPenumpang &L, adrPenumpang &p){
+void deletePenumpangLast(adrBis &L, adrPenumpang &p){
 
 }
 
