@@ -22,16 +22,8 @@ void displayPenumpang(ListPenumpang L){
 
 }
 
-void deleteAllPenumpang(ListPenumpang &L){
-
-}
-
-int countPenumpang(ListPenumpang L){
-
-}
-
 bool isEmptyPenumpang(ListPenumpang L){
-
+    return L.first == nullptr;
 }
 
 void displayPenumpangTujuan(ListPenumpang L, string tujuan){
