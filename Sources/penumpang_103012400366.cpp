@@ -7,18 +7,18 @@ adrPenumpang createElemenPenumpang(string tujuan, string idtiket){
     
 }
 
-void insertPenumpangLast(ListPenumpang &p, adrPenumpang q){
+void insertPenumpangLast(ListPenumpang &L, adrPenumpang p){
 
 }
 
-void deletePenumpangFirst(ListPenumpang &p, adrPenumpang &l){
+void deletePenumpangFirst(ListPenumpang &L, adrPenumpang &p){
 
 }
 
-void deletePenumpangAfter(ListPenumpang &p, adrPenumpang prec, adrPenumpang &l){
+void deletePenumpangAfter(ListPenumpang &L, adrPenumpang prec, adrPenumpang &p){
 
 }
 
-adrPenumpang searchPenumpang(ListPenumpang &p, string notiket, adrPenumpang idtiket){
+adrPenumpang searchPenumpang(ListPenumpang &L, string notiket, adrPenumpang idtiket){
 
 }
