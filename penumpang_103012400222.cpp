@@ -16,26 +16,25 @@ void insertPenumpangFirst(adrBis &L, adrPenumpang p){
 }
 
 void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p){
-    if (prec == nullptr) {
-        cout << "Precursor tidak ditemukan!" << endl;
-        return;
+     if (prec == nullptr) {
+        cout << "list kosong" << endl;
+    } else {
+        p->next = prec->next;
+        p->prev = prec;
+
+        if (prec->next != nullptr) {
+            prec->next->prev = p;
+        }
+
+        prec->next = p;
     }
-
-    p->next = prec->next;
-    p->prev = prec;
-
-    if (prec->next != nullptr) {
-        prec->next->prev = p;
-    }
-
-    prec->next = p;
 }
 
 void deletePenumpangLast(adrBis &L, adrPenumpang &p){
     adrPenumpang q = L->firstPenumpang;
     if (isEmptyPenumpang(L)) {
-        p = nullptr;
-    }else if (q->prev != nullptr) {
+        cout << "Tidak ada penumpang." << endl;
+    } else if (q->prev != nullptr) {
         while (q->next != nullptr) {
             q = q->next;
         }
@@ -49,14 +48,24 @@ void deletePenumpangLast(adrBis &L, adrPenumpang &p){
 void ubahPenumpang(adrPenumpang &L, string idtiket, string tujuanBaru){
     adrPenumpang p = L;
     bool found = false;
-     while (found != true) {
+
+    while (p != nullptr && found == false) {
         if (p->info.idtiket == idtiket) {
             p->info.tujuan = tujuanBaru;
             found = true;
         }
-        p = p->next;
+        else {
+            p = p->next;
+        }
     }
-    cout << "ID Tiket: " << p->info.idtiket << "\n" << "Tujuan menjadi: " << p->info.tujuan;
+    if (found == true) {
+        cout << "ID Tiket: " << idtiket 
+             << "\nTujuan berhasil diubah menjadi: " 
+             << tujuanBaru << endl;
+    } else {
+        cout << "Penumpang dengan ID tiket " << idtiket 
+             << " tidak ditemukan!" << endl;
+    }
 }
 
 void displayPenumpang(adrPenumpang L){
