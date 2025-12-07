@@ -77,3 +77,22 @@ void deleteAllPenumpang(adrPenumpang &L){
 int countPenumpang(adrPenumpang L){
 
 }
+
+void adminInsertFirstPenumpang(ListBis &L){
+
+};
+void adminInsertLastPenumpang(ListBis &L){
+
+};
+void adminInsertAfterPenumpang(ListBis &L){
+
+};
+void adminDeleteFirstPenumpang(ListBis &L){
+    
+};
+void adminDeleteLastPenumpang(ListBis &L){
+    
+};
+void adminDeleteAfterPenumpang(ListBis &L){
+    
+};
