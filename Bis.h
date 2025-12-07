@@ -31,4 +31,11 @@ adrBis findBis(ListBis L, string idBis);
 int countBis(ListBis L);
 void displayBis(ListBis L);
 adrBis findBisByRute(ListBis L, string rute);
+void adminInsertFirstBis(ListBis &L);
+void adminInsertLastBis(ListBis &L);
+void adminInsertAfterBis(ListBis &L);
+void adminDeleteFirstBis(ListBis &L);
+void adminDeleteLastBis(ListBis &L);
+void adminDeleteAfterBis(ListBis &L);
+adrBis inputBisData();
 #endif

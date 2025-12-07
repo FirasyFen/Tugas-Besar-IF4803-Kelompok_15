@@ -30,5 +30,10 @@ void deleteAllPenumpang(adrPenumpang &L);
 int countPenumpang(adrPenumpang L);
 bool isEmptyPenumpang(adrPenumpang L);
 void displayPenumpangTujuan(adrPenumpang L, string tujuan);
-
+void adminInsertFirstPenumpang(ListBis &L);
+void adminInsertLastPenumpang(ListBis &L);
+void adminInsertAfterPenumpang(ListBis &L);
+void adminDeleteFirstPenumpang(ListBis &L);
+void adminDeleteLastPenumpang(ListBis &L);
+void adminDeleteAfterPenumpang(ListBis &L);
 #endif
