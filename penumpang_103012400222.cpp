@@ -16,23 +16,47 @@ void insertPenumpangFirst(adrBis &L, adrPenumpang p){
 }
 
 void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p){
-    
+    if (prec == nullptr) {
+        cout << "Precursor tidak ditemukan!" << endl;
+        return;
+    }
+
+    p->next = prec->next;
+    p->prev = prec;
+
+    if (prec->next != nullptr) {
+        prec->next->prev = p;
+    }
+
+    prec->next = p;
 }
 
 void deletePenumpangLast(adrBis &L, adrPenumpang &p){
-
+    adrPenumpang q = L->firstPenumpang;
+    if (isEmptyPenumpang(L)) {
+        p = nullptr;
+    }else if (q->prev != nullptr) {
+        while (q->next != nullptr) {
+            q = q->next;
+        }
+        p = q;
+        q->prev->next = nullptr;
+    } else {
+        L->firstPenumpang = nullptr;
+    }
 }
 
 void ubahPenumpang(adrPenumpang &L, string idtiket, string tujuanBaru){
-     adrPenumpang p = L;
-
-    while (p != nullptr) {
+    adrPenumpang p = L;
+    bool found = false;
+     while (found != true) {
         if (p->info.idtiket == idtiket) {
             p->info.tujuan = tujuanBaru;
-            return;
+            found = true;
         }
         p = p->next;
     }
+    cout << "ID Tiket: " << p->info.idtiket << "\n" << "Tujuan menjadi: " << p->info.tujuan;
 }
 
 void displayPenumpang(adrPenumpang L){

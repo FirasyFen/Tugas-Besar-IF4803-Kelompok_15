@@ -7,6 +7,7 @@ using namespace std;
 void menuAdmin(ListBis &L) {
     int pilihan = 0;
     adrBis P = nullptr;
+    adrPenumpang Q = nullptr;
     string id;
     while (pilihan != 18) {
         cout << "\n========================================\n";
@@ -52,7 +53,7 @@ void menuAdmin(ListBis &L) {
         case 6:
             adminDeleteAfterBis(L);
         case 7:
-            adminInsertFirstPenumpang(L);
+            insertPenumpangFirst(P, Q);
         case 8:
             adminInsertLastPenumpang(L);
         case 9:
