@@ -74,22 +74,33 @@ void deleteAllPenumpang(adrPenumpang &L){
 
 }
 
-int countPenumpang(adrPenumpang L){
+int countPenumpang(ListBis L){
+    int count;
+    adrPenumpang p;
+    adrBis bisTarget;
+    string tujuan;
 
+    count = 0;
+    cout << "Masukkan Bis dengan tujuan yang ingin dihitung penumpangnya: "; cin >> tujuan;
+    bisTarget = findBisByTujuan(L, tujuan);
+    if (bisTarget == nullptr) {
+        cout << "Bis dengan tujuan " << tujuan << " tidak ditemukan." << endl;
+    }
+    p = bisTarget->firstPenumpang;
+    while (p != nullptr) {
+        count++;
+        p = p->next;
+    }
+    return count;
 }
 
-void adminInsertLastPenumpang(ListBis &L){
+
+void adminInsertLastPenumpang(adrPenumpang &L){
 
 };
-void adminInsertAfterPenumpang(ListBis &L){
-
-};
-void adminDeleteFirstPenumpang(ListBis &L){
+void adminDeleteFirstPenumpang(adrPenumpang &L){
     
 };
-void adminDeleteLastPenumpang(ListBis &L){
-    
-};
-void adminDeleteAfterPenumpang(ListBis &L){
+void adminDeleteAfterPenumpang(adrPenumpang &L){
     
 };

@@ -44,7 +44,7 @@ void displayBis(ListBis L){
     while (P != nullptr){
         cout << "ID Bis      : " << P->info.idBis << endl;
         cout << "Kapasitas   : " << P->info.kapasitas << endl;
-        cout << "Rute        : " << P->info.rute << endl;
+        cout << "Tujuan      : " << P->info.tujuan << endl;
         cout << "-----------------------------" << "\n" << endl;
 
         P = P->next;

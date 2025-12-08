@@ -7,11 +7,11 @@ void createListBis(ListBis &L) {
     L.first = nullptr;
 }
 
-adrBis createElmBis(string idBis, int kapasitas, string rute) {
+adrBis createElmBis(string idBis, int kapasitas, string tujuan) {
     adrBis P = new elmBis;
     P->info.idBis = idBis;
     P->info.kapasitas = kapasitas;
-    P->info.rute = rute;
+    P->info.tujuan = tujuan;
     P->next = nullptr;
     P->firstPenumpang = nullptr;
     return P;
@@ -40,7 +40,7 @@ void deleteFirstBis(ListBis &L, adrBis &P){
         P->next = nullptr;
     }
 };
-void deleteLastBis(ListBis &L, adrBis &P){
+void deleteAfterBis(ListBis &L, adrBis &P){
     adrBis Q;
     if (isEmpty(L)) {
         P = nullptr;
@@ -58,10 +58,21 @@ void deleteLastBis(ListBis &L, adrBis &P){
     }
 };
 
-adrBis findBis(ListBis L, string idBis) {
+adrBis findBisById(ListBis L, string idBis) {
     adrBis P = L.first;
     while (P != nullptr) {
         if (P->info.idBis == idBis) {
+            return P;
+        }
+        P = P->next;
+    }
+    return nullptr;
+}
+
+adrBis findBisByTujuan(ListBis L, string tujuan) {
+    adrBis P = L.first;
+    while (P != nullptr) {
+        if (P->info.tujuan == tujuan) {
             return P;
         }
         P = P->next;
@@ -158,15 +169,15 @@ void adminDeleteAfterBis(ListBis &L) {
 }
 
 adrBis inputBisData() {
-    string id, rute;
+    string id, tujuan;
     adrBis P;
     int kapasitas;
     cout << "ID Bis     : ";
     cin >> id;
     cout << "Kapasitas  : ";
     cin >> kapasitas;
-    cout << "Rute       : ";
-    cin >> rute;
-    P = createElmBis(id, kapasitas, rute);
+    cout << "Tujuan     : ";
+    cin >> tujuan;
+    P = createElmBis(id, kapasitas, tujuan);
     return P;
 }
