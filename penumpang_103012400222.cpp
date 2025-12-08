@@ -92,3 +92,32 @@ void displayPenumpangTujuan(adrPenumpang L, string tujuan){
         p = p->next;
     }
 }
+
+void adminInsertFirstPenumpang(ListBis &L){
+    adrPenumpang P;
+    cout << "\n=== INSERT FIRST BIS ===\n";
+    P = inputDataPenumpang();
+    insertPenumpangFirst(L, p);
+    cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di awal!\n";
+};
+
+void adminInsertAfterPenumpang(ListBis &L){
+
+};
+
+void adminDeleteLastPenumpang(ListBis &L){
+    
+};
+
+adrPenumpang inputDataPenumpang(){
+    string nama, idtiket, tujuan;
+    adrPenumpang p;
+    cout << "Nama: ";
+    cin >> nama;
+    cout << "Tujuan: "
+    cin >> tujuan;
+    cout << "ID Tiket: ";
+    cin >> idtiket;
+    p = createElemenPenumpang(nama, tujuan, idtiket);
+    return p;
+}

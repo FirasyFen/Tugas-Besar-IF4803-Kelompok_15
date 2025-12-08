@@ -6,8 +6,9 @@ using namespace std;
 typedef struct elemenPenumpang *adrPenumpang;
 
 struct penumpang{
-    string tujuan;
     string idtiket;
+    string nama;
+    string tujuan
 };
 
 struct elemenPenumpang{
@@ -16,7 +17,7 @@ struct elemenPenumpang{
     adrPenumpang prev;
 };
 
-adrPenumpang createElemenPenumpang(string tujuan, string idtiket);
+adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket);
 void insertPenumpangFirst(adrBis &L, adrPenumpang p);
 void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p);
 void insertPenumpangLast(adrBis &L,  adrPenumpang p);
@@ -36,4 +37,5 @@ void adminInsertAfterPenumpang(ListBis &L);
 void adminDeleteFirstPenumpang(ListBis &L);
 void adminDeleteLastPenumpang(ListBis &L);
 void adminDeleteAfterPenumpang(ListBis &L);
+adrPenumpang inputDataPenumpang();
 #endif
