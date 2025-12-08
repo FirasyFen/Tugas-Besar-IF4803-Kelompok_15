@@ -3,9 +3,9 @@
 #include "Bis.h"
 using namespace std;
 
-adrPenumpang createElemenPenumpang(string tujuan, string idtiket) {
+adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket) {
     adrPenumpang q = new elemenPenumpang;
-    q->info.tujuan = tujuan;
+    q->info.nama = nama;
     q->info.idtiket = idtiket;
     q->next = nullptr;
     q->prev = nullptr;
