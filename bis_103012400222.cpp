@@ -1,5 +1,4 @@
-#include "Bis.h"
-#include "Penumpang.h"
+#include "main.h"
 #include <iostream>
 using namespace std;
 

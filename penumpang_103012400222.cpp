@@ -114,7 +114,7 @@ adrPenumpang inputDataPenumpang(){
     adrPenumpang p;
     cout << "Nama: ";
     cin >> nama;
-    cout << "Tujuan: "
+    cout << "Tujuan: ";
     cin >> tujuan;
     cout << "ID Tiket: ";
     cin >> idtiket;
