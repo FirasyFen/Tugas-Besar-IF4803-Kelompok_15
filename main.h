@@ -8,6 +8,7 @@ struct dataBis{
     int kapasitas;
     string rute;
 };
+
 typedef struct elmBis *adrBis;
 typedef struct elemenPenumpang *adrPenumpang;
 struct elmBis{
@@ -15,9 +16,11 @@ struct elmBis{
     adrBis next;
     adrPenumpang firstPenumpang;
 };
+
 struct ListBis{
     adrBis first;
 };
+
 struct penumpang{
     string idtiket;
     string nama;
