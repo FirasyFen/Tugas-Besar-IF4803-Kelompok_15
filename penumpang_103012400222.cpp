@@ -1,6 +1,5 @@
 #include <iostream>
-#include "Penumpang.h"
-#include "Bis.h"
+#include "main.h"
 using namespace std;
 void insertPenumpangFirst(adrBis &L, adrPenumpang p){
     if (isEmptyPenumpang(L)) {
@@ -59,11 +58,11 @@ void ubahPenumpang(adrPenumpang &L, string idtiket, string tujuanBaru){
         }
     }
     if (found == true) {
-        cout << "ID Tiket: " << idtiket 
-             << "\nTujuan berhasil diubah menjadi: " 
+        cout << "ID Tiket: " << idtiket
+             << "\nTujuan berhasil diubah menjadi: "
              << tujuanBaru << endl;
     } else {
-        cout << "Penumpang dengan ID tiket " << idtiket 
+        cout << "Penumpang dengan ID tiket " << idtiket
              << " tidak ditemukan!" << endl;
     }
 }
@@ -106,7 +105,7 @@ void adminInsertAfterPenumpang(ListBis &L){
 };
 
 void adminDeleteLastPenumpang(ListBis &L){
-    
+
 };
 
 adrPenumpang inputDataPenumpang(){

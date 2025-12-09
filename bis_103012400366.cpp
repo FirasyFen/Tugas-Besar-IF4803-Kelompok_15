@@ -1,5 +1,4 @@
-#include "Bis.h"
-#include "Penumpang.h"
+#include "main.h"
 #include <iostream>
 using namespace std;
 
@@ -118,7 +117,7 @@ void adminInsertAfterBis(ListBis &L) {
 void adminDeleteFirstBis(ListBis &L) {
     adrBis P;
     cout << "\n=== DELETE FIRST BIS ===\n";
-    
+
     if (isEmpty(L)) {
         cout << "Tidak ada bis yang bisa dihapus. List kosong!\n";
         return;
@@ -129,12 +128,12 @@ void adminDeleteFirstBis(ListBis &L) {
 
 void adminDeleteLastBis(ListBis &L) {
     cout << "\n=== DELETE LAST BIS ===\n";
-    
+
     if (isEmpty(L)) {
         cout << "Tidak ada bis yang bisa dihapus. List kosong!\n";
         return;
     }
-    
+
     adrBis P;
     deleteLastBis(L, P);
     cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
@@ -142,27 +141,27 @@ void adminDeleteLastBis(ListBis &L) {
 
 void adminDeleteAfterBis(ListBis &L) {
     cout << "\n=== DELETE AFTER BIS ===\n";
-    
+
     if (isEmpty(L)) {
         cout << "Tidak ada bis yang bisa dihapus. List kosong!\n";
         return;
     }
-    
+
     string idSebelum;
     cout << "ID Bis Sebelumnya : ";
     cin >> idSebelum;
-    
+
     adrBis Prec = findBis(L, idSebelum);
     if (Prec == nullptr) {
         cout << "Bis " << idSebelum << " tidak ditemukan!\n";
         return;
     }
-    
+
     if (Prec->next == nullptr) {
         cout << "Tidak ada bis setelah " << idSebelum << "!\n";
         return;
     }
-    
+
     adrBis P;
     deleteAfterBis(L, Prec, P);
     cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
