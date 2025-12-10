@@ -11,8 +11,8 @@ adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket) {
     return q;
 }
 
-bool isEmptyPenumpang(adrPenumpang p) {
-    return (p == nullptr);
+bool isEmptyPenumpang(adrBis p) {
+    return (p->firstPenumpang == nullptr);
 }
 
 void insertPenumpangLast(adrPenumpang &p, adrPenumpang q) {

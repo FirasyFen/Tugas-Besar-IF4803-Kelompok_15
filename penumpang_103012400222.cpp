@@ -2,7 +2,7 @@
 #include "main.h"
 using namespace std;
 void insertPenumpangFirst(adrBis &L, adrPenumpang p){
-    if (isEmptyPenumpang(L)) {
+    if (isEmptyPenumpang(L->firstPenumpang)) {
         L->firstPenumpang = p;
         p->next = nullptr;
         p->prev = nullptr;
@@ -31,7 +31,7 @@ void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p){
 
 void deletePenumpangLast(adrBis &L, adrPenumpang &p){
     adrPenumpang q = L->firstPenumpang;
-    if (isEmptyPenumpang(L)) {
+    if (isEmptyPenumpang(L->firstPenumpang)) {
         cout << "Tidak ada penumpang." << endl;
     } else if (q->prev != nullptr) {
         while (q->next != nullptr) {
@@ -96,7 +96,7 @@ void adminInsertFirstPenumpang(ListBis &L){
     adrPenumpang P;
     cout << "\n=== INSERT FIRST BIS ===\n";
     P = inputDataPenumpang();
-    insertPenumpangFirst(L, p);
+    insertPenumpangFirst(L, P);
     cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di awal!\n";
 };
 
