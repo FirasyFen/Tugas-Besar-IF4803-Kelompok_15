@@ -93,19 +93,73 @@ void displayPenumpangTujuan(adrPenumpang L, string tujuan){
 }
 
 void adminInsertFirstPenumpang(ListBis &L){
-    adrPenumpang P;
-    cout << "\n=== INSERT FIRST BIS ===\n";
-    P = inputDataPenumpang();
-    insertPenumpangFirst(L, P);
-    cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di awal!\n";
+    string idBis;
+    cout << "\n=== INSERT FIRST PENUMPANG ===\n";
+    cout << "Masukkan ID Bis: ";
+    cin >> idBis;
+
+    adrBis B = findBis(L, idBis);
+
+    if (B == nullptr){
+        cout << "Bis tidak ditemukan!\n";
+    }
+    else {
+        adrPenumpang P = inputDataPenumpang();
+        insertPenumpangFirst(B, P);
+        cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di awal!\n";
+    }
 };
 
 void adminInsertAfterPenumpang(ListBis &L){
+    string idBis, idTiket;
+    cout << "\n=== INSERT AFTER PENUMPANG ===\n";
+    cout << "Masukkan ID Bis: ";
+    cin >> idBis;
 
+    adrBis B = findBis(L, idBis);
+
+    if (B == nullptr){
+        cout << "Bis tidak ditemukan!\n";
+    }
+    else {
+        cout << "Masukkan ID Tiket Penumpang Sebelumnya: ";
+        cin >> idTiket;
+
+        adrPenumpang prec = B->firstPenumpang;
+        while (prec != nullptr && prec->info.idtiket != idTiket){
+            prec = prec->next;
+        }
+
+        if (prec == nullptr){
+            cout << "Penumpang sebelumnya tidak ditemukan!\n";
+        }
+        else {
+            adrPenumpang P = inputDataPenumpang();
+            insertPenumpangAfter(B, prec, P);
+            cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di tengah!\n";
+        }
+    }
 };
 
 void adminDeleteLastPenumpang(ListBis &L){
+    string idBis;
+    cout << "\n=== DELETE LAST PENUMPANG ===\n";
+    cout << "Masukkan ID Bis: ";
+    cin >> idBis;
 
+    adrBis B = findBis(L, idBis);
+
+    if (B == nullptr){
+        cout << "Bis tidak ditemukan!\n";
+    }
+    else {
+        adrPenumpang P;
+        deletePenumpangLast(B, P);
+
+        if (P != nullptr){
+            cout << "\nPenumpang " << P->info.nama << " berhasil dihapus dari akhir!\n";
+        }
+    }
 };
 
 adrPenumpang inputDataPenumpang(){
