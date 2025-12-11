@@ -17,7 +17,9 @@ void menuAdmin(ListBis &L) {
         cout << "4.  Delete First Bis\n";
         cout << "5.  Delete Last Bis\n";
         cout << "6.  Delete After Bis\n";
-        cout << "----------------------------------------\n";
+        cout << "\n========================================\n";
+        cout << "          MENU ADMIN - PENUMPANG            \n";
+        cout << "========================================\n";
         cout << "7.  Insert First Penumpang ke Bis\n";
         cout << "8.  Insert Last Penumpang ke Bis\n";
         cout << "9.  Insert After Penumpang ke Bis\n";

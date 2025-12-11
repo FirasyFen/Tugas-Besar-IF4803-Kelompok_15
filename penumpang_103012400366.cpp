@@ -180,7 +180,7 @@ void adminInsertLastPenumpang(ListBis &L) {
 
 void adminDeleteFirstPenumpang(ListBis &L) {
     cout << "\n=== DELETE FIRST PENUMPANG ===\n";
-            string namaPenumpang;
+    string namaPenumpang;
     string idBis;
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
@@ -216,7 +216,7 @@ void adminDeleteAfterPenumpang(ListBis &L) {
         cout << "Bis " << idBis << " tidak ditemukan!\n";
         return;
     }
-if (bis->firstPenumpang == nullptr) {
+    if (bis->firstPenumpang == nullptr) {
         cout << "Tidak ada penumpang di bis " << idBis << "!\n";
         return;
     }
