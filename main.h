@@ -45,8 +45,8 @@ void deleteAfterBis(ListBis &L, adrBis Prec, adrBis &P);
 int countBis(ListBis L);
 void displayBis(ListBis L);
 adrBis findBisByRute(ListBis L, string rute);
-adrBis findBisById(ListBis L, string idBis)
-adrBis findBisByTujuan(ListBis L, string tujuan)
+adrBis findBisById(ListBis L, string idBis);
+adrBis findBisByTujuan(ListBis L, string tujuan);
 void adminInsertFirstBis(ListBis &L);
 void adminInsertLastBis(ListBis &L);
 void adminInsertAfterBis(ListBis &L);
@@ -54,7 +54,6 @@ void adminDeleteFirstBis(ListBis &L);
 void adminDeleteLastBis(ListBis &L);
 void adminDeleteAfterBis(ListBis &L);
 adrBis inputBisData();
-
 adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket);
 void insertPenumpangFirst(adrBis &L, adrPenumpang p);
 void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p);

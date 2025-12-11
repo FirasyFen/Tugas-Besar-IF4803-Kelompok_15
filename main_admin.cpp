@@ -69,7 +69,7 @@ void menuAdmin(ListBis &L) {
         case 15:
             cout << "\nMasukkan idbis yang ingin di cari\n";
             cin >> id;
-            findBis(L, id);
+            findBisById(L, id);
         case 16:
             searchPenumpang(P->firstPenumpang, id, P->firstPenumpang);
         case 17:
