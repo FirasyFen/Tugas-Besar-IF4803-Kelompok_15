@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-#include "Bis.h"
-#include "Penumpang.h"
+#include "main.h"
 using namespace std;
 
 void menuAdmin(ListBis &L) {
@@ -42,7 +41,7 @@ void menuAdmin(ListBis &L) {
         case 1:
             adminInsertFirstBis(L);
         case 2:
-            adminInsertLastBis(L);        
+            adminInsertLastBis(L);
         case 3:
             adminInsertAfterBis(L);
         case 4:
@@ -79,6 +78,6 @@ void menuAdmin(ListBis &L) {
             cout << "Kembali...\n";
         default:
             cout << "Pilihan tidak valid!\n";
-            }   
+            }
         }
 }
