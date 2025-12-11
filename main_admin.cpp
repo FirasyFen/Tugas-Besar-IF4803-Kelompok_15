@@ -70,8 +70,21 @@ void menuAdmin(ListBis &L) {
             cout << "\nMasukkan idbis yang ingin di cari\n";
             cin >> id;
             findBisById(L, id);
-        case 16:
-            searchPenumpang(P->firstPenumpang, id, P->firstPenumpang);
+           case 16: {
+                string idBis, idTiket;
+                cout << "Masukkan ID Bis: ";
+                cin >> idBis;
+                cout << "Masukkan ID Tiket: ";
+                cin >> idTiket;
+
+                adrBis bis = findBisById(L, idBis);
+                if (bis != nullptr) {
+                    adrPenumpang hasil = searchPenumpang(bis->firstPenumpang, idTiket);
+                    if (hasil != nullptr) {
+                        cout << "Ditemukan: " << hasil->info.nama << endl;
+                    }
+                }
+            }
         case 17:
             ubahPenumpang(P->firstPenumpang,id, id);
         case 18:

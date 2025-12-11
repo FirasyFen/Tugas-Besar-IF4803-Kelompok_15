@@ -12,8 +12,8 @@ adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket) {
     return q;
 }
 
-bool isEmptyPenumpang(adrBis p) {
-    return (p->firstPenumpang == nullptr);
+bool isEmptyPenumpang(adrPenumpang L) {
+    return (L == nullptr);
 }
 
 void insertPenumpangLast(adrBis &bis, adrPenumpang p) {
@@ -109,7 +109,7 @@ void deleteAllPenumpang(ListBis &L, string idBis){
     adrBis p;
     int jumlah;
 
-    p = findBis(L, idBis);
+    p = findBisById(L, idBis);
     if (p == nullptr) {
         cout << "Bis tidak ditemukan" << endl;
         return;
@@ -163,7 +163,7 @@ void adminInsertLastPenumpang(ListBis &L) {
     cin >> idBis;
 
     // Cari bis
-    adrBis bis = findBis(L, idBis);
+    adrBis bis = findBisById(L, idBis);
     if (bis == nullptr) {
         cout << "Bis " << idBis << " tidak ditemukan!\n";
         return;
@@ -185,7 +185,7 @@ void adminDeleteFirstPenumpang(ListBis &L) {
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
 
-    adrBis bis = findBis(L, idBis);
+    adrBis bis = findBisById(L, idBis);
     if (bis == nullptr) {
         cout << "Bis " << idBis << " tidak ditemukan!\n";
         return;
@@ -197,7 +197,6 @@ void adminDeleteFirstPenumpang(ListBis &L) {
     }
 
     namaPenumpang = bis->firstPenumpang->info.nama;
-    idTiket = bis->firstPenumpang->info.idtiket;
 
     adrPenumpang P;
     deletePenumpangFirst(bis, P);

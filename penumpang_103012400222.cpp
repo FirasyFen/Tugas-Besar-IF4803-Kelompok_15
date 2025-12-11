@@ -98,7 +98,7 @@ void adminInsertFirstPenumpang(ListBis &L){
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
 
-    adrBis B = findBis(L, idBis);
+    adrBis B = findBisById(L, idBis);
 
     if (B == nullptr){
         cout << "Bis tidak ditemukan!\n";
@@ -116,7 +116,7 @@ void adminInsertAfterPenumpang(ListBis &L){
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
 
-    adrBis B = findBis(L, idBis);
+    adrBis B = findBisById(L, idBis);
 
     if (B == nullptr){
         cout << "Bis tidak ditemukan!\n";
@@ -147,7 +147,7 @@ void adminDeleteLastPenumpang(ListBis &L){
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
 
-    adrBis B = findBis(L, idBis);
+    adrBis B = findBisById(L, idBis);
 
     if (B == nullptr){
         cout << "Bis tidak ditemukan!\n";
