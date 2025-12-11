@@ -3,10 +3,10 @@
 #include "main.h"
 using namespace std;
 
-void menuAdmin(ListBis &L) {
+void menuUser(ListBis &L) {
     int pilihan = 0;
     adrBis P = nullptr;
-    string id;
+    string id, rute;
     while (pilihan != 18) {
         cout << "\n========================================\n";
         cout << "          MENU USER - BIS            \n";
@@ -19,25 +19,22 @@ void menuAdmin(ListBis &L) {
         cout << "3.  Insert Last Penumpang ke Bis\n";
         cout << "----------------------------------------\n";
         cout << "4. Tampilkan Bis\n";
-        cout << "5. Find Bis\n";
         cout << "----------------------------------------\n";
-        cout << "6. Kembali\n";
+        cout << "5. Kembali\n";
         cout << "========================================\n";
         cout << "Pilih Menu: ";
         cin >> pilihan;
 
     switch (pilihan) {
         case 1:
-            adminInsertFirstBis(L);
+            userFindBisByRute(L);
         case 2:
-            adminInsertLastBis(L);
+            userFindBisById(L);
         case 3:
-            adminInsertAfterBis(L);
+            adminInsertLastPenumpang(L);
         case 4:
-            adminDeleteFirstBis(L);
+            displayBis(L);
         case 5:
-            adminDeleteLastBis(L);
-        case 6:
             cout << "Kembali...\n";
         default:
             cout << "Pilihan tidak valid!\n";
