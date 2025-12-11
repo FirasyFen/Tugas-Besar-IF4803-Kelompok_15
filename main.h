@@ -1,5 +1,6 @@
-#ifndef MAIN_H_INLUDED
-#define MAIN_H_INLUDED
+#ifndef MAIN_H_INCLUDED
+#define MAIN_H_INCLUDED
+#include "string"
 using namespace std;
 
 struct dataBis{
@@ -7,6 +8,7 @@ struct dataBis{
     int kapasitas;
     string rute;
 };
+
 typedef struct elmBis *adrBis;
 typedef struct elemenPenumpang *adrPenumpang;
 struct elmBis{
@@ -14,13 +16,15 @@ struct elmBis{
     adrBis next;
     adrPenumpang firstPenumpang;
 };
+
 struct ListBis{
     adrBis first;
 };
+
 struct penumpang{
     string idtiket;
     string nama;
-    string tujuan
+    string tujuan;
 };
 
 struct elemenPenumpang{
@@ -70,3 +74,5 @@ void adminDeleteFirstPenumpang(ListBis &L);
 void adminDeleteLastPenumpang(ListBis &L);
 void adminDeleteAfterPenumpang(ListBis &L);
 adrPenumpang inputDataPenumpang();
+
+#endif
