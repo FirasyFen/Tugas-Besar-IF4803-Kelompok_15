@@ -212,7 +212,7 @@ void adminDeleteAfterPenumpang(ListBis &L) {
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
 
-    adrBis bis = findBis(L, idBis);
+    adrBis bis = findBisById(L, idBis);
     if (bis == nullptr) {
         cout << "Bis " << idBis << " tidak ditemukan!\n";
         return;
