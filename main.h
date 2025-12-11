@@ -45,8 +45,8 @@ void deleteAfterBis(ListBis &L, adrBis Prec, adrBis &P);
 int countBis(ListBis L);
 void displayBis(ListBis L);
 adrBis findBisByRute(ListBis L, string rute);
-adrBis findBisById(ListBis L, string idBis)
-adrBis findBisByTujuan(ListBis L, string tujuan)
+adrBis findBisById(ListBis L, string idBis);
+adrBis findBisByTujuan(ListBis L, string tujuan);
 void adminInsertFirstBis(ListBis &L);
 void adminInsertLastBis(ListBis &L);
 void adminInsertAfterBis(ListBis &L);
@@ -63,7 +63,7 @@ void deletePenumpangFirst(adrBis &L, adrPenumpang &p);
 void deletePenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang &p);
 void deletePenumpangLast(adrBis &L, adrPenumpang &p);
 void ubahPenumpang(adrPenumpang &L, string idtiket, string tujuanBaru);
-adrPenumpang searchPenumpang(adrPenumpang &p, string notiket, adrPenumpang idtiket);
+adrPenumpang searchPenumpang(adrPenumpang p, string idtiket);
 void displayPenumpang(adrPenumpang L);
 void deleteAllPenumpang(adrPenumpang &L);
 int countPenumpang(adrPenumpang L);
