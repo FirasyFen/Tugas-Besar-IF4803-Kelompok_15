@@ -108,7 +108,7 @@ void adminInsertFirstPenumpang(ListBis &L){
         insertPenumpangFirst(B, P);
         cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di awal!\n";
     }
-};
+}
 
 void adminInsertAfterPenumpang(ListBis &L){
     string idBis, idTiket;
@@ -139,7 +139,7 @@ void adminInsertAfterPenumpang(ListBis &L){
             cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di tengah!\n";
         }
     }
-};
+}
 
 void adminDeleteLastPenumpang(ListBis &L){
     string idBis;
@@ -160,7 +160,7 @@ void adminDeleteLastPenumpang(ListBis &L){
             cout << "\nPenumpang " << P->info.nama << " berhasil dihapus dari akhir!\n";
         }
     }
-};
+}
 
 adrPenumpang inputDataPenumpang(){
     string nama, idtiket, tujuan;
