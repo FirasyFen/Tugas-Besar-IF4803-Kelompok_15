@@ -75,5 +75,7 @@ void adminDeleteFirstPenumpang(ListBis &L);
 void adminDeleteLastPenumpang(ListBis &L);
 void adminDeleteAfterPenumpang(ListBis &L);
 adrPenumpang inputDataPenumpang();
+adrBis userFindBisByRute(ListBis L);
+adrBis userFindBisById(ListBis L);
 
 #endif
