@@ -54,7 +54,6 @@ void adminDeleteFirstBis(ListBis &L);
 void adminDeleteLastBis(ListBis &L);
 void adminDeleteAfterBis(ListBis &L);
 adrBis inputBisData();
-
 adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket);
 void insertPenumpangFirst(adrBis &L, adrPenumpang p);
 void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p);
