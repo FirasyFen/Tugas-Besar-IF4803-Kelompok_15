@@ -1,6 +1,5 @@
 #include <iostream>
-#include "Penumpang.h"
-#include "Bis.h"
+#include "main.h"
 using namespace std;
 
 adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket) {
@@ -12,8 +11,8 @@ adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket) {
     return q;
 }
 
-bool isEmptyPenumpang(adrPenumpang p) {
-    return (p == nullptr);
+bool isEmptyPenumpang(adrBis p) {
+    return (p->firstPenumpang == nullptr);
 }
 
 void insertPenumpangLast(adrPenumpang &p, adrPenumpang q) {
@@ -99,8 +98,8 @@ void adminInsertLastPenumpang(adrPenumpang &L){
 
 };
 void adminDeleteFirstPenumpang(adrPenumpang &L){
-    
+
 };
 void adminDeleteAfterPenumpang(adrPenumpang &L){
-    
+
 };
