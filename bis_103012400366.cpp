@@ -10,7 +10,7 @@ adrBis createElmBis(string idBis, int kapasitas, string tujuan) {
     adrBis P = new elmBis;
     P->info.idBis = idBis;
     P->info.kapasitas = kapasitas;
-    P->info.tujuan = tujuan;
+    P->info.rute = tujuan;
     P->next = nullptr;
     P->firstPenumpang = nullptr;
     return P;
@@ -39,23 +39,30 @@ void deleteFirstBis(ListBis &L, adrBis &P){
         P->next = nullptr;
     }
 };
-void deleteAfterBis(ListBis &L, adrBis &P){
-    adrBis Q;
+void deleteAfterBis(ListBis &L, adrBis Prec, adrBis &P) {
     if (isEmpty(L)) {
         P = nullptr;
         cout << "List kosong" << endl;
-    }  else if (L.first->next == nullptr) {
-        P = L.first;
-        L.first = nullptr;
-    } else {
-        Q = L.first;
-        while (Q->next->next != nullptr){
-            Q = Q->next;
-        }
-        P = Q->next;
-        Q->next = nullptr;
+        return;
     }
-};
+
+    if (Prec == nullptr) {
+        P = nullptr;
+        cout << "Prec tidak valid" << endl;
+        return;
+    }
+
+    if (Prec->next == nullptr) {
+        P = nullptr;
+        cout << "Tidak ada elemen setelah Prec" << endl;
+        return;
+    }
+
+    P = Prec->next;
+    Prec->next = P->next;
+    P->next = nullptr;
+    cout << "Bis " << P->info.idBis << " berhasil dihapus" << endl;
+}
 
 adrBis findBisById(ListBis L, string idBis) {
     adrBis P = L.first;
@@ -71,7 +78,7 @@ adrBis findBisById(ListBis L, string idBis) {
 adrBis findBisByTujuan(ListBis L, string tujuan) {
     adrBis P = L.first;
     while (P != nullptr) {
-        if (P->info.tujuan == tujuan) {
+        if (P->info.rute == tujuan) {
             return P;
         }
         P = P->next;
@@ -103,7 +110,7 @@ void adminInsertAfterBis(ListBis &L) {
     displayBis(L);
     cout << "masukkan ID Bis yang ingin ditambahkan setelahnya: ";
     cin >> idSebelum;
-    Prec = findBis(L, idSebelum);
+    Prec = findBisById(L, idSebelum);
     if (Prec == nullptr) {
         cout << "Bis " << idSebelum << " tidak ditemukan!\n";
         return;
@@ -151,7 +158,7 @@ void adminDeleteAfterBis(ListBis &L) {
     cout << "ID Bis Sebelumnya : ";
     cin >> idSebelum;
 
-    adrBis Prec = findBis(L, idSebelum);
+    adrBis Prec = findBisById(L, idSebelum);
     if (Prec == nullptr) {
         cout << "Bis " << idSebelum << " tidak ditemukan!\n";
         return;

@@ -62,7 +62,7 @@ void deletePenumpangFirst(adrBis &L, adrPenumpang &p);
 void deletePenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang &p);
 void deletePenumpangLast(adrBis &L, adrPenumpang &p);
 void ubahPenumpang(adrPenumpang &L, string idtiket, string tujuanBaru);
-adrPenumpang searchPenumpang(adrPenumpang &p, string notiket, adrPenumpang idtiket);
+adrPenumpang searchPenumpang(adrPenumpang p, string idtiket);
 void displayPenumpang(adrPenumpang L);
 void deleteAllPenumpang(adrPenumpang &L);
 int countPenumpang(adrPenumpang L);
