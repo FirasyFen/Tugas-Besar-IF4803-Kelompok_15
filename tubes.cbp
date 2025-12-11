@@ -31,6 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Bis.h" />
+		<Unit filename="Penumpang.h" />
+		<Unit filename="bis_103012400222.cpp" />
+		<Unit filename="bis_103012400366.cpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Unit filename="main_admin.cpp" />
+		<Unit filename="main_user.cpp" />
+		<Unit filename="penumpang_103012400222.cpp" />
+		<Unit filename="penumpang_103012400366.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
