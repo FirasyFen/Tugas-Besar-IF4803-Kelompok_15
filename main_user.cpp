@@ -3,15 +3,15 @@
 #include "main.h"
 using namespace std;
 
-void menuUser(ListBis &L) {
+void menuUser() {  // Terima parameter ListBis
     int pilihan = 0;
-    adrBis P = nullptr;
     string id, rute;
-    while (pilihan != 18) {
+    ListBis L;
+    while (pilihan != 5) {
         cout << "\n========================================\n";
         cout << "          MENU USER - BIS            \n";
         cout << "========================================\n";
-        cout << "1.  Mencari Bis Berdasarkan Rute\n";
+        cout << "1.  Mencari Bis Berdasarkan Tujuan\n";
         cout << "2.  Mencari Bis Berdasarkan ID\n";
         cout << "\n========================================\n";
         cout << "          MENU USER - PENUMPANG            \n";
@@ -20,24 +20,30 @@ void menuUser(ListBis &L) {
         cout << "----------------------------------------\n";
         cout << "4. Tampilkan Bis\n";
         cout << "----------------------------------------\n";
-        cout << "5. Kembali\n";
+        cout << "5. Kembali ke Menu Utama\n";  // UBAH TEXT
         cout << "========================================\n";
         cout << "Pilih Menu: ";
         cin >> pilihan;
 
-    switch (pilihan) {
-        case 1:
-            userFindBisByRute(L);
-        case 2:
-            userFindBisById(L);
-        case 3:
-            adminInsertLastPenumpang(L);
-        case 4:
-            displayBis(L);
-        case 5:
-            cout << "Kembali...\n";
-        default:
-            cout << "Pilihan tidak valid!\n";
-            }
+        switch (pilihan) {
+            case 1:
+                userFindBisByTujuan(L);
+                break;
+            case 2:
+                userFindBisById(L);
+                break;
+            case 3:
+                adminInsertLastPenumpang(L);
+                break;
+            case 4:
+                displayBis(L);
+                break;
+            case 5:
+                cout << "Kembali ke menu utama...\n";
+                return;  // KELUAR DARI FUNGSI, KEMBALI KE MAIN MENU
+            default:
+                cout << "Pilihan tidak valid!\n";
+                break;
         }
+    }
 }

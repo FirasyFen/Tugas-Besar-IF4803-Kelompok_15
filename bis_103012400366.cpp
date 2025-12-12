@@ -10,7 +10,7 @@ adrBis createElmBis(string idBis, int kapasitas, string tujuan) {
     adrBis P = new elmBis;
     P->info.idBis = idBis;
     P->info.kapasitas = kapasitas;
-    P->info.rute = tujuan;
+    P->info.tujuan = tujuan;
     P->next = nullptr;
     P->firstPenumpang = nullptr;
     return P;
@@ -78,7 +78,7 @@ adrBis findBisById(ListBis L, string idBis) {
 adrBis findBisByTujuan(ListBis L, string tujuan) {
     adrBis P = L.first;
     while (P != nullptr) {
-        if (P->info.rute == tujuan) {
+        if (P->info.tujuan == tujuan) {
             return P;
         }
         P = P->next;
@@ -186,4 +186,19 @@ adrBis inputBisData() {
     cin >> tujuan;
     P = createElmBis(id, kapasitas, tujuan);
     return P;
+}
+
+bool isFullBis(adrBis bis) {
+    if (bis == nullptr){
+         return true;
+    }
+
+    int count = 0;
+    adrPenumpang temp = bis->firstPenumpang;
+    while (temp != nullptr) {
+        count++;
+        temp = temp->next;
+    }
+
+    return (count == bis->info.kapasitas);
 }
