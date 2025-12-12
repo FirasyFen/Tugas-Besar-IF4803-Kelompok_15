@@ -1,11 +1,5 @@
 #include <iostream>
-<<<<<<< HEAD
-#incluide "main.h"
-
-int main(){
-
-=======
-#include"main.h"
+#include "main.h"
 using namespace std;
 
 int main()
@@ -41,5 +35,4 @@ int main()
         }
     }
     return 0;
->>>>>>> 37794cc7c9bb46da32fd0094989a9e88aad7ac00
 }
