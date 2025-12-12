@@ -6,7 +6,7 @@ using namespace std;
 struct dataBis{
     string idBis;
     int kapasitas;
-    string rute;
+    string tujuan;
 };
 
 typedef struct elmBis *adrBis;
@@ -24,7 +24,6 @@ struct ListBis{
 struct penumpang{
     string idtiket;
     string nama;
-    string tujuan;
 };
 
 struct elemenPenumpang{
@@ -34,7 +33,7 @@ struct elemenPenumpang{
 };
 
 void createListBis(ListBis &L);
-adrBis createElmBis(string idBis, int kapasitas, string rute);
+adrBis createElmBis(string idBis, int kapasitas, string tujuan);
 bool isEmpty(ListBis L);
 void insertFirstBis(ListBis &L, adrBis P);
 void insertLastBis(ListBis &L, adrBis P);
@@ -44,7 +43,6 @@ void deleteLastBis(ListBis &L, adrBis &P);
 void deleteAfterBis(ListBis &L, adrBis Prec, adrBis &P);
 int countBis(ListBis L);
 void displayBis(ListBis L);
-adrBis findBisByRute(ListBis L, string rute);
 adrBis findBisById(ListBis L, string idBis);
 adrBis findBisByTujuan(ListBis L, string tujuan);
 void adminInsertFirstBis(ListBis &L);
@@ -54,7 +52,7 @@ void adminDeleteFirstBis(ListBis &L);
 void adminDeleteLastBis(ListBis &L);
 void adminDeleteAfterBis(ListBis &L);
 adrBis inputBisData();
-adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket);
+adrPenumpang createElemenPenumpang(string nama, string idtiket);
 void insertPenumpangFirst(adrBis &L, adrPenumpang p);
 void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p);
 void insertPenumpangLast(adrBis &L,  adrPenumpang p);
@@ -75,7 +73,9 @@ void adminDeleteFirstPenumpang(ListBis &L);
 void adminDeleteLastPenumpang(ListBis &L);
 void adminDeleteAfterPenumpang(ListBis &L);
 adrPenumpang inputDataPenumpang();
-adrBis userFindBisByRute(ListBis L);
+adrBis  userFindBisByTujuan(ListBis L);
 adrBis userFindBisById(ListBis L);
 
+void menuUser();
+void menuAdmin();
 #endif
