@@ -75,6 +75,11 @@ void adminDeleteAfterPenumpang(ListBis &L);
 adrPenumpang inputDataPenumpang();
 adrBis  userFindBisByTujuan(ListBis L);
 adrBis userFindBisById(ListBis L);
+void totalKursiKosong(ListBis L);
+void bisMasihKosong(ListBis L);
+void bisPenumpangTerbanyak(ListBis L);
+void bisPenumpangTerkecil(ListBis L);
+void penumpangPindahBis(ListBis &L);
 
 void menuUser();
 void menuAdmin();
