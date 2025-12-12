@@ -156,7 +156,7 @@ int countPenumpang(ListBis L){
 
 void adminInsertLastPenumpang(ListBis &L) {
     cout << "\n=== INSERT LAST PENUMPANG ===\n";
-    displayBis(L);
+
     string idBis;
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
@@ -181,7 +181,6 @@ void adminDeleteFirstPenumpang(ListBis &L) {
     cout << "\n=== DELETE FIRST PENUMPANG ===\n";
     string namaPenumpang;
     string idBis;
-        displayBis(L);
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
 
@@ -208,7 +207,6 @@ void adminDeleteAfterPenumpang(ListBis &L) {
     cout << "\n=== DELETE AFTER PENUMPANG ===\n";
 
     string idBis;
-        displayBis(L);
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
 
@@ -221,7 +219,7 @@ void adminDeleteAfterPenumpang(ListBis &L) {
         cout << "Tidak ada penumpang di bis " << idBis << "!\n";
         return;
     }
-    displayPenumpang(bis->firstPenumpang);
+
     string idSebelum;
     cout << "ID Tiket Penumpang Sebelumnya: ";
     cin >> idSebelum;
