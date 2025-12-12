@@ -44,52 +44,17 @@ void deletePenumpangLast(adrBis &L, adrPenumpang &p){
     }
 }
 
-void ubahPenumpang(adrPenumpang &L, string idtiket, string tujuanBaru){
-    adrPenumpang p = L;
-    bool found = false;
-
-    while (p != nullptr && found == false) {
-        if (p->info.idtiket == idtiket) {
-            p->info.tujuan = tujuanBaru;
-            found = true;
-        }
-        else {
-            p = p->next;
-        }
-    }
-    if (found == true) {
-        cout << "ID Tiket: " << idtiket
-             << "\nTujuan berhasil diubah menjadi: "
-             << tujuanBaru << endl;
-    } else {
-        cout << "Penumpang dengan ID tiket " << idtiket
-             << " tidak ditemukan!" << endl;
-    }
-}
-
 void displayPenumpang(adrPenumpang L){
     adrPenumpang p = L;
-
     while (p != nullptr) {
         cout << "ID Tiket: " << p->info.idtiket << endl;
-        cout << " Tujuan " << p->info.tujuan << endl;
+        cout << " Nama: " << p->info.nama << endl;
         p = p->next;
     }
 }
 
 bool isEmptyPenumpang(adrBis L){
     return L->firstPenumpang == nullptr;
-}
-
-void displayPenumpangTujuan(adrPenumpang L, string tujuan){
-    adrPenumpang p = L;
-
-    while (p != nullptr) {
-        if (p->info.tujuan == tujuan) {
-            cout << p->info.idtiket << " - " << p->info.tujuan << endl;
-        }
-        p = p->next;
-    }
 }
 
 void adminInsertFirstPenumpang(ListBis &L){
@@ -163,14 +128,12 @@ void adminDeleteLastPenumpang(ListBis &L){
 }
 
 adrPenumpang inputDataPenumpang(){
-    string nama, idtiket, tujuan;
+    string nama, idtiket;
     adrPenumpang p;
     cout << "Nama: ";
     cin >> nama;
-    cout << "Tujuan: ";
-    cin >> tujuan;
     cout << "ID Tiket: ";
     cin >> idtiket;
-    p = createElemenPenumpang(nama, tujuan, idtiket);
+    p = createElemenPenumpang(nama, idtiket);
     return p;
 }

@@ -2,11 +2,10 @@
 #include "main.h"
 using namespace std;
 
-adrPenumpang createElemenPenumpang(string nama, string tujuan, string idtiket) {
+adrPenumpang createElemenPenumpang(string nama, string idtiket) {
     adrPenumpang q = new elemenPenumpang;
     q->info.nama = nama;
     q->info.idtiket = idtiket;
-    q->info.tujuan = tujuan;
     q->next = nullptr;
     q->prev = nullptr;
     return q;
@@ -157,7 +156,7 @@ int countPenumpang(ListBis L){
 
 void adminInsertLastPenumpang(ListBis &L) {
     cout << "\n=== INSERT LAST PENUMPANG ===\n";
-
+    displayBis(L);
     string idBis;
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
@@ -182,6 +181,7 @@ void adminDeleteFirstPenumpang(ListBis &L) {
     cout << "\n=== DELETE FIRST PENUMPANG ===\n";
     string namaPenumpang;
     string idBis;
+        displayBis(L);
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
 
@@ -208,6 +208,7 @@ void adminDeleteAfterPenumpang(ListBis &L) {
     cout << "\n=== DELETE AFTER PENUMPANG ===\n";
 
     string idBis;
+        displayBis(L);
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
 
@@ -220,7 +221,7 @@ void adminDeleteAfterPenumpang(ListBis &L) {
         cout << "Tidak ada penumpang di bis " << idBis << "!\n";
         return;
     }
-
+    displayPenumpang(bis->firstPenumpang);
     string idSebelum;
     cout << "ID Tiket Penumpang Sebelumnya: ";
     cin >> idSebelum;
