@@ -91,6 +91,46 @@ void bisPenumpangTerbanyak(ListBis L){
     }
 }
 
+void adminInsertFirstBis(ListBis &L) {
+    adrBis P;
+    cout << "\n=== INSERT FIRST BIS ===\n";
+    P = inputBisData();
+    insertFirstBis(L, P);
+    cout << "\nBis " << P->info.idBis << " berhasil ditambahkan di awal!\n";
+}
+
+void adminInsertAfterBis(ListBis &L) {
+    adrBis Prec;
+    string idSebelum;
+    adrBis P;
+    cout << "\n=== INSERT AFTER BIS ===\n";
+    displayBis(L);
+    cout << "masukkan ID Bis yang ingin ditambahkan setelahnya: ";
+    cin >> idSebelum;
+    Prec = findBisById(L, idSebelum);
+    if (Prec == nullptr) {
+        cout << "Bis " << idSebelum << " tidak ditemukan!\n";
+        return;
+    }
+    cout << "\n-- Data Bis Baru --\n";
+    P = inputBisData();
+    insertAfterBis(L, Prec, P);
+    cout << "\nBis " << P->info.idBis << " berhasil ditambahkan!\n";
+}
+
+void adminDeleteLastBis(ListBis &L) {
+    cout << "\n=== DELETE LAST BIS ===\n";
+
+    if (isEmpty(L)) {
+        cout << "Tidak ada bis yang bisa dihapus. List kosong!\n";
+        return;
+    }
+
+    adrBis P;
+    deleteLastBis(L, P);
+    cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
+}
+
 void bisPenumpangTerkecil(ListBis L){
     adrBis p = L.first;
     adrBis minBis = p;

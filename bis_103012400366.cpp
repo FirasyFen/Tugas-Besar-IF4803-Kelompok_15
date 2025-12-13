@@ -86,39 +86,12 @@ adrBis findBisByTujuan(ListBis L, string tujuan) {
     return nullptr;
 }
 
-void adminInsertFirstBis(ListBis &L) {
-    adrBis P;
-    cout << "\n=== INSERT FIRST BIS ===\n";
-    P = inputBisData();
-    insertFirstBis(L, P);
-    cout << "\nBis " << P->info.idBis << " berhasil ditambahkan di awal!\n";
-}
-
 void adminInsertLastBis(ListBis &L) {
     adrBis P;
     cout << "\n=== INSERT LAST BIS ===\n";
     P = inputBisData();
     insertLastBis(L, P);
     cout << "\nBis " << P->info.idBis << " berhasil ditambahkan di akhir!\n";
-}
-
-void adminInsertAfterBis(ListBis &L) {
-    adrBis Prec;
-    string idSebelum;
-    adrBis P;
-    cout << "\n=== INSERT AFTER BIS ===\n";
-    displayBis(L);
-    cout << "masukkan ID Bis yang ingin ditambahkan setelahnya: ";
-    cin >> idSebelum;
-    Prec = findBisById(L, idSebelum);
-    if (Prec == nullptr) {
-        cout << "Bis " << idSebelum << " tidak ditemukan!\n";
-        return;
-    }
-    cout << "\n-- Data Bis Baru --\n";
-    P = inputBisData();
-    insertAfterBis(L, Prec, P);
-    cout << "\nBis " << P->info.idBis << " berhasil ditambahkan!\n";
 }
 
 void adminDeleteFirstBis(ListBis &L) {
@@ -130,19 +103,6 @@ void adminDeleteFirstBis(ListBis &L) {
         return;
     }
     deleteFirstBis(L, P);
-    cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
-}
-
-void adminDeleteLastBis(ListBis &L) {
-    cout << "\n=== DELETE LAST BIS ===\n";
-
-    if (isEmpty(L)) {
-        cout << "Tidak ada bis yang bisa dihapus. List kosong!\n";
-        return;
-    }
-
-    adrBis P;
-    deleteLastBis(L, P);
     cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
 }
 

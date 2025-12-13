@@ -133,23 +133,15 @@ void deleteAllPenumpang(ListBis &L, string idBis){
     cout << "Berhasil menghapus " << jumlah << " penumpang" << endl;
 }
 
-int countPenumpang(ListBis L){
-    int count;
-    adrPenumpang p;
-    adrBis bisTarget;
-    string tujuan;
+int countPenumpang(adrPenumpang L) {
+    int count = 0;
+    adrPenumpang P = L;
 
-    count = 0;
-    cout << "Masukkan Bis dengan tujuan yang ingin dihitung penumpangnya: "; cin >> tujuan;
-    bisTarget = findBisByTujuan(L, tujuan);
-    if (bisTarget == nullptr) {
-        cout << "Bis dengan tujuan " << tujuan << " tidak ditemukan." << endl;
-    }
-    p = bisTarget->firstPenumpang;
-    while (p != nullptr) {
+    while (P != nullptr) {
         count++;
-        p = p->next;
+        P = P->next;
     }
+
     return count;
 }
 

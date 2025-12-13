@@ -4,11 +4,9 @@ using namespace std;
 
 int main()
 {
-
-
     int pilihan = 0;
-
     while (pilihan != 3) {
+        system("cls");
         cout << "\n========================================\n";
         cout << "          MENU UTAMA                   \n";
         cout << "========================================\n";
