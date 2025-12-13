@@ -18,7 +18,7 @@ adrBis createElmBis(string idBis, int kapasitas, string tujuan) {
 
 void insertLastBis(ListBis &L, adrBis P){
    adrBis Q;
-    if (L.first == nullptr) {
+    if (isEmptyBis(L)) {
         L.first = P;
     } else {
         Q = L.first;
@@ -30,7 +30,7 @@ void insertLastBis(ListBis &L, adrBis P){
 };
 
 void deleteFirstBis(ListBis &L, adrBis &P){
-    if (isEmpty(L)) {
+    if (isEmptyBis(L)) {
         P = nullptr;
         cout << "List kosong" << endl;
     } else {
@@ -40,22 +40,19 @@ void deleteFirstBis(ListBis &L, adrBis &P){
     }
 };
 void deleteAfterBis(ListBis &L, adrBis Prec, adrBis &P) {
-    if (isEmpty(L)) {
+    if (isEmptyBis(L)) {
         P = nullptr;
         cout << "List kosong" << endl;
-        return;
     }
 
     if (Prec == nullptr) {
         P = nullptr;
         cout << "Prec tidak valid" << endl;
-        return;
     }
 
     if (Prec->next == nullptr) {
         P = nullptr;
         cout << "Tidak ada elemen setelah Prec" << endl;
-        return;
     }
 
     P = Prec->next;
@@ -98,9 +95,8 @@ void adminDeleteFirstBis(ListBis &L) {
     adrBis P;
     cout << "\n=== DELETE FIRST BIS ===\n";
 
-    if (isEmpty(L)) {
+    if (isEmptyBis(L)) {
         cout << "Tidak ada bis yang bisa dihapus. List kosong!\n";
-        return;
     }
     deleteFirstBis(L, P);
     cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
@@ -109,9 +105,8 @@ void adminDeleteFirstBis(ListBis &L) {
 void adminDeleteAfterBis(ListBis &L) {
     cout << "\n=== DELETE AFTER BIS ===\n";
 
-    if (isEmpty(L)) {
+    if (isEmptyBis(L)) {
         cout << "Tidak ada bis yang bisa dihapus. List kosong!\n";
-        return;
     }
 
     string idSebelum;
@@ -121,12 +116,10 @@ void adminDeleteAfterBis(ListBis &L) {
     adrBis Prec = findBisById(L, idSebelum);
     if (Prec == nullptr) {
         cout << "Bis " << idSebelum << " tidak ditemukan!\n";
-        return;
     }
 
     if (Prec->next == nullptr) {
         cout << "Tidak ada bis setelah " << idSebelum << "!\n";
-        return;
     }
 
     adrBis P;

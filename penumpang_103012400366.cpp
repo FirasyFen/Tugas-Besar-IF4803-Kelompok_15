@@ -17,69 +17,56 @@ bool isEmptyPenumpang(adrPenumpang L) {
 
 void insertPenumpangLast(adrBis &bis, adrPenumpang p) {
     if (bis == nullptr) {
-        cout << "Error: Bis tidak valid" << endl;
-        return;
+        cout << "List Bis tidak ada" << endl;
     }
     if (p == nullptr) {
-        cout << "Error: Penumpang tidak valid" << endl;
-        return;
+        cout << "Penumpang tidak ada" << endl;
     }
 
     if (bis->firstPenumpang == nullptr) {
         bis->firstPenumpang = p;
         p->prev = nullptr;
         p->next = nullptr;
-        cout << "Penumpang berhasil ditambahkan sebagai penumpang pertama" << endl;
     } else {
         adrPenumpang last = bis->firstPenumpang;
         while (last->next != nullptr) {
             last = last->next;
         }
-
         last->next = p;
         p->prev = last;
         p->next = nullptr;
-
-        cout << "Penumpang berhasil ditambahkan di akhir list" << endl;
     }
-
 }
 
 void deletePenumpangFirst(adrBis &bis, adrPenumpang &p) {
     if (bis == nullptr) {
         p = nullptr;
-        cout << "Error: Bis tidak valid" << endl;
-        return;
-    } else if (bis->firstPenumpang == nullptr) {
+        cout << "Bis tidak valid" << endl;
+    }
+    if (isEmptyPenumpang(bis->firstPenumpang)) {
         p = nullptr;
         cout << "Tidak ada penumpang di bis " << bis->info.idBis << endl;
-        return;
-    } else {
-        p= bis->firstPenumpang;
-        bis->firstPenumpang = p->next;
-            if (bis->firstPenumpang != nullptr) {
-                bis->firstPenumpang->prev = nullptr;
-            }
-        p->next = nullptr;
-        p->prev = nullptr;
     }
-    cout << "Penumpang " << p->info.nama
-         << " berhasil dihapus dari bis " << bis->info.idBis << endl;
+    p = bis->firstPenumpang;
+
+    if (p->next == nullptr) {
+        bis->firstPenumpang = nullptr;
+    } else {
+        bis->firstPenumpang = p->next;
+        bis->firstPenumpang->prev = nullptr;
+    }
+
+    p->next = nullptr;
+    p->prev = nullptr;
 }
 void deletePenumpangAfter(adrBis &bis, adrPenumpang prec, adrPenumpang &p) {
 
     if (bis == nullptr) {
         p = nullptr;
         cout << "Bis tidak ditemukan" << endl;
-        return;
-    } else if (prec == nullptr) {
-        p = nullptr;
-        cout << "Elemen sebelumnya tidak valid" << endl;
-        return;
     } else if (prec->next == nullptr) {
         p = nullptr;
         cout << "Tidak ada elemen setelah elemen tersebut" << endl;
-        return;
     } else {
         p = prec->next;
         prec->next = p->next;
@@ -89,11 +76,11 @@ void deletePenumpangAfter(adrBis &bis, adrPenumpang prec, adrPenumpang &p) {
         p->next = nullptr;
         p->prev = nullptr;
     }
-    cout << "Penumpang setelah elemen berhasil dihapus" << endl;
 }
 
 adrPenumpang searchPenumpang(adrPenumpang p, string idtiket) {
-    adrPenumpang q = p;
+    adrPenumpang q;
+    q = p;
     while (q != nullptr) {
         if (q->info.idtiket == idtiket) {
             return q;
@@ -104,33 +91,18 @@ adrPenumpang searchPenumpang(adrPenumpang p, string idtiket) {
 }
 
 void deleteAllPenumpang(ListBis &L, string idBis){
-    adrPenumpang temp, q;
+    adrPenumpang temp;
     adrBis p;
-    int jumlah;
-
     p = findBisById(L, idBis);
     if (p == nullptr) {
         cout << "Bis tidak ditemukan" << endl;
-        return;
     }
-
     if (p->firstPenumpang == nullptr) {
         cout << "Tidak ada penumpang" << endl;
-        return;
     }
-
-    q = p->firstPenumpang;
-    jumlah = 0;
-
-    while (q != nullptr) {
-        temp = q;
-        q = q->next;
-        delete temp;
-        jumlah++;
-    }
-
-    p->firstPenumpang = nullptr;
-    cout << "Berhasil menghapus " << jumlah << " penumpang" << endl;
+   while (p->firstPenumpang != nullptr) {
+        deletePenumpangFirst(p, temp);
+   }
 }
 
 int countPenumpang(adrPenumpang L) {
@@ -141,7 +113,6 @@ int countPenumpang(adrPenumpang L) {
         count++;
         P = P->next;
     }
-
     return count;
 }
 
@@ -152,20 +123,13 @@ void adminInsertLastPenumpang(ListBis &L) {
     string idBis;
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
-
-    // Cari bis
     adrBis bis = findBisById(L, idBis);
     if (bis == nullptr) {
         cout << "Bis " << idBis << " tidak ditemukan!\n";
         return;
     }
-
-    // Input data penumpang
     adrPenumpang P = inputDataPenumpang();
-
-    // Insert ke akhir list penumpang di bis tersebut
     insertPenumpangLast(bis, P);
-
     cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di bis " << idBis << "!\n";
 }
 
@@ -181,14 +145,11 @@ void adminDeleteFirstPenumpang(ListBis &L) {
         cout << "Bis " << idBis << " tidak ditemukan!\n";
         return;
     }
-
     if (bis->firstPenumpang == nullptr) {
         cout << "Tidak ada penumpang di bis " << idBis << "!\n";
         return;
     }
-
     namaPenumpang = bis->firstPenumpang->info.nama;
-
     adrPenumpang P;
     deletePenumpangFirst(bis, P);
 
@@ -220,20 +181,38 @@ void adminDeleteAfterPenumpang(ListBis &L) {
     while (Prec != nullptr && Prec->info.idtiket != idSebelum) {
         Prec = Prec->next;
     }
-
     if (Prec == nullptr) {
         cout << "Penumpang dengan ID Tiket " << idSebelum << " tidak ditemukan!\n";
-        return;
     }
 
     if (Prec->next == nullptr) {
         cout << "Tidak ada penumpang setelah " << idSebelum << "!\n";
-        return;
     }
     string namaPenumpang = Prec->next->info.nama;
     string idTiket = Prec->next->info.idtiket;
     adrPenumpang P;
     deletePenumpangAfter(bis, Prec, P);
-
     cout << "\nPenumpang " << namaPenumpang << " (ID: " << idTiket << ") berhasil dihapus dari bis " << idBis << "!\n";
+}
+
+void hitungRataRataPenumpang(ListBis L) {
+    float hasil;
+   adrBis bis;
+   int jumlahPenumpang, totalPenumpang, totalBis;
+    if (isEmptyBis(L)) {
+        cout << "List kosong" <<endl;
+    }
+
+    totalPenumpang = 0;
+    totalBis = 0;
+
+    bis = L.first;
+    while (bis != nullptr) {
+        jumlahPenumpang = countPenumpang(bis->firstPenumpang);
+        totalPenumpang += jumlahPenumpang;
+        totalBis++;
+        bis = bis->next;
+    }
+    hasil = (float)totalPenumpang / totalBis;
+    cout << "Rata-rata penumpang setiap bis: " << hasil <<endl;
 }
