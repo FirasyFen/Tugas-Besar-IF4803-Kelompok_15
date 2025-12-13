@@ -7,7 +7,8 @@ void menuAdmin() {
     int pilihan;
     pilihan = 0;
     ListBis L;
-    while (pilihan != 18) {
+    system("cls");
+    while (pilihan != 17) {
 
         cout << "\n========================================\n";
         cout << "          MENU ADMIN - BIS            \n";
