@@ -57,6 +57,10 @@ bool isEmptyPenumpang(adrBis L){
     return L->firstPenumpang == nullptr;
 }
 
+void penumpangPindahBis(ListBis &L){
+
+}
+
 void adminInsertFirstPenumpang(ListBis &L){
     string idBis;
     cout << "\n=== INSERT FIRST PENUMPANG ===\n";

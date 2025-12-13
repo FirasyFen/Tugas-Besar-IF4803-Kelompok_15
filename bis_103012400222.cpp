@@ -54,6 +54,71 @@ bool isEmpty(ListBis L){
     return L.first == nullptr;
 }
 
+void bisMasihKosong(ListBis L){
+    adrBis p = L.first;
+    bool found = false;
+
+    while (p != nullptr) {
+        if (countPenumpang(p->firstPenumpang) == 0) {
+            cout << "Bis " << p->info.idBis << " Tujuan: " << p->info.tujuan << " masih kosong.\n";
+            found = true;
+        }
+        p = p->next;
+    }
+
+    if (!found) {
+        cout << "Tidak ada bis yang kosong.\n";
+    }
+}
+
+void bisPenumpangTerbanyak(ListBis L){
+    adrBis p = L.first;
+    adrBis maxBis = p;
+    int maxCount = countPenumpang(p->firstPenumpang);
+    int c = countPenumpang(p->firstPenumpang);
+
+    if (L.first == nullptr) {
+        cout << "Tidak ada bis dalam list.\n";
+    }else{
+        while (p != nullptr) {
+            if (c > maxCount) {
+                maxCount = c;
+                maxBis = p;
+            }
+            p = p->next;
+        }
+        cout << "Bis dengan penumpang terbanyak adalah id bis" << maxBis->info.idBis << " dengan penumpang " << maxCount << " penumpang" << endl;
+    }
+}
+
+void bisPenumpangTerkecil(ListBis L){
+    adrBis p = L.first;
+    adrBis minBis = p;
+    int minCount = countPenumpang(p->firstPenumpang);
+
+    int c = countPenumpang(p->firstPenumpang);
+      if (L.first == nullptr) {
+        cout << "Tidak ada bis dalam list.\n";
+        return;
+    }else{
+        while (p != nullptr) {
+            if (c < minCount) {
+                minCount = c;
+                minBis = p;
+            }
+            p = p->next;
+        }
+
+        cout << "Bis dengan penumpang paling sedikit adalah id bis " << minBis->info.idBis << " dengan penumpang " << minCount << " penumpang" << endl;
+    }
+}
+
+bool isFullKapasitas(adrBis L){
+    if (L == nullptr){
+        return false;
+    }
+    return countPenumpang(L->firstPenumpang) >= L->info.kapasitas;
+}
 
 adrBis userFindBisByTujuan(ListBis L) {
     string tujuan;
@@ -76,10 +141,9 @@ adrBis userFindBisByTujuan(ListBis L) {
 
 adrBis userFindBisById(ListBis L) {
     string idBis;
+    adrBis P = findBisById(L, idBis);
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
-
-    adrBis P = findBisById(L, idBis);
 
     if (P != nullptr) {
         cout << "Bis ditemukan!\n";
@@ -94,5 +158,7 @@ adrBis userFindBisById(ListBis L) {
 
     return P;
 }
+
+
 
 

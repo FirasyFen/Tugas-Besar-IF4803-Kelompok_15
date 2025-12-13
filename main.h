@@ -80,7 +80,7 @@ void bisMasihKosong(ListBis L);
 void bisPenumpangTerbanyak(ListBis L);
 void bisPenumpangTerkecil(ListBis L);
 void penumpangPindahBis(ListBis &L);
-
+bool isFullKapasitas(adrBis L);
 void menuUser();
 void menuAdmin();
 #endif

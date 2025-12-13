@@ -13,14 +13,17 @@ void menuUser() {  // Terima parameter ListBis
         cout << "========================================\n";
         cout << "1.  Mencari Bis Berdasarkan Tujuan\n";
         cout << "2.  Mencari Bis Berdasarkan ID\n";
+        cout << "3.  Cek Bis Yang Masih Kosong\n";
+        cout << "4.  Cek Bis Terpadat ID\n";
+        cout << "5.  Cek Bis Tersepi ID\n";
         cout << "\n========================================\n";
         cout << "          MENU USER - PENUMPANG            \n";
         cout << "========================================\n";
-        cout << "3.  Insert Last Penumpang ke Bis\n";
+        cout << "6.  Insert Last Penumpang ke Bis\n";
         cout << "----------------------------------------\n";
-        cout << "4. Tampilkan Bis\n";
+        cout << "7. Tampilkan Bis\n";
         cout << "----------------------------------------\n";
-        cout << "5. Kembali ke Menu Utama\n";  // UBAH TEXT
+        cout << "8. Kembali ke Menu Utama\n";  // UBAH TEXT
         cout << "========================================\n";
         cout << "Pilih Menu: ";
         cin >> pilihan;
@@ -33,12 +36,21 @@ void menuUser() {  // Terima parameter ListBis
                 userFindBisById(L);
                 break;
             case 3:
-                adminInsertLastPenumpang(L);
+                bisMasihKosong(L);
                 break;
             case 4:
-                displayBis(L);
+                bisPenumpangTerbanyak(L);
                 break;
             case 5:
+                bisPenumpangTerkecil(L);
+                break;
+            case 6:
+                adminInsertLastPenumpang(L);
+                break;
+            case 7:
+                displayBis(L);
+                break;
+            case 8:
                 cout << "Kembali ke menu utama...\n";
                 return;  // KELUAR DARI FUNGSI, KEMBALI KE MAIN MENU
             default:
