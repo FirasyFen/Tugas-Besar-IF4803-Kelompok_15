@@ -34,7 +34,7 @@ struct elemenPenumpang{
 
 void createListBis(ListBis &L);
 adrBis createElmBis(string idBis, int kapasitas, string tujuan);
-bool isEmpty(ListBis L);
+bool isEmptyBis(ListBis L);
 void insertFirstBis(ListBis &L, adrBis P);
 void insertLastBis(ListBis &L, adrBis P);
 void insertAfterBis(ListBis &L, adrBis Prec, adrBis P);
@@ -52,6 +52,8 @@ void adminDeleteFirstBis(ListBis &L);
 void adminDeleteLastBis(ListBis &L);
 void adminDeleteAfterBis(ListBis &L);
 adrBis inputBisData();
+
+
 adrPenumpang createElemenPenumpang(string nama, string idtiket);
 void insertPenumpangFirst(adrBis &L, adrPenumpang p);
 void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p);
@@ -84,4 +86,7 @@ void penumpangPindahBis(ListBis &L);
 bool isFullKapasitas(adrBis L);
 void menuUser();
 void menuAdmin();
+void hitungRataRataPenumpang(ListBis L);
+
+void loadDummyData(ListBis &L);
 #endif

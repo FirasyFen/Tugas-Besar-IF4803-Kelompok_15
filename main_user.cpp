@@ -8,6 +8,7 @@ void menuUser() {  // Terima parameter ListBis
     string id, rute;
     ListBis L;
     system("cls");
+    loadDummyData(L);
     while (pilihan != 7) {
         cout << "\n========================================\n";
         cout << "               MENU USER                  \n";
@@ -17,7 +18,7 @@ void menuUser() {  // Terima parameter ListBis
         cout << "3.  Cek Bis Yang Masih Kosong\n";
         cout << "4.  Cek Bis Terpadat ID\n";
         cout << "5.  Cek Bis Tersepi ID\n";
-        cout << "6.  Insert Last Penumpang ke Bis\n";
+        cout << "6.  Cek rata-rata penumpang bis\n";
         cout << "----------------------------------------\n";
         cout << "7. Kembali ke Menu Utama\n";
         cout << "========================================\n";
@@ -41,14 +42,52 @@ void menuUser() {  // Terima parameter ListBis
                 bisPenumpangTerkecil(L);
                 break;
             case 6:
-                adminInsertLastPenumpang(L);
+                hitungRataRataPenumpang(L);
                 break;
             case 7:
                 cout << "Kembali ke menu utama...\n";
-                return;  // KELUAR DARI FUNGSI, KEMBALI KE MAIN MENU
+                return;
             default:
                 cout << "Pilihan tidak valid!\n";
                 break;
         }
     }
+}
+
+void loadDummyData(ListBis &L) {
+    /* ====== DUMMY BIS ====== */
+    adrBis A = createElmBis("B001", 5, "Jakarta");
+    adrBis B = createElmBis("B002", 4, "Bandung");
+    adrBis C = createElmBis("B003", 6, "Yogyakarta");
+    adrBis D = createElmBis("B004", 8, "Surabaya");
+    adrBis E = createElmBis("B005", 10, "Bali");
+
+    insertLastBis(L, A);
+    insertLastBis(L, B);
+    insertLastBis(L, C);
+    insertLastBis(L, D);
+    insertLastBis(L, E);
+
+    /* ====== DUMMY PENUMPANG UNTUK BIS A ====== */
+    insertPenumpangLast(A, createElemenPenumpang("Andi", "T001"));
+    insertPenumpangLast(A, createElemenPenumpang("Budi", "T002"));
+    insertPenumpangLast(A, createElemenPenumpang("Citra", "T003"));
+
+    /* ====== DUMMY PENUMPANG UNTUK BIS B ====== */
+    insertPenumpangLast(B, createElemenPenumpang("Dewi", "T004"));
+    insertPenumpangLast(B, createElemenPenumpang("Andi", "T005"));
+    insertPenumpangLast(B, createElemenPenumpang("Fajar", "T006"));
+    insertPenumpangLast(B, createElemenPenumpang("Gita", "T007"));
+
+    /* ====== DUMMY PENUMPANG UNTUK BIS C ====== */
+    insertPenumpangLast(C, createElemenPenumpang("Hadi", "T008"));
+    insertPenumpangLast(C, createElemenPenumpang("Indra", "T009"));
+    insertPenumpangLast(C, createElemenPenumpang("Joko", "T010"));
+
+    /* ====== DUMMY PENUMPANG UNTUK BIS D ====== */
+    insertPenumpangLast(D, createElemenPenumpang("Kartika", "T011"));
+    insertPenumpangLast(D, createElemenPenumpang("Lina", "T012"));
+
+    /* ====== DUMMY PENUMPANG UNTUK BIS E ====== */
+    insertPenumpangLast(E, createElemenPenumpang("Mira", "T013"));
 }

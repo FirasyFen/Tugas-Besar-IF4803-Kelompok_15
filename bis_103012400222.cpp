@@ -3,7 +3,7 @@
 using namespace std;
 
 void insertFirstBis(ListBis &L, adrBis P){
-    if (isEmpty(L)){
+    if (isEmptyBis(L)){
         L.first = P;
     }else{
         P->next = L.first;
@@ -12,7 +12,7 @@ void insertFirstBis(ListBis &L, adrBis P){
 }
 
 void insertAfterBis(ListBis &L, adrBis Prec, adrBis P){
-    if (isEmpty(L)){
+    if (isEmptyBis(L)){
         L.first = P;
     }else if(L.first->next == nullptr){
         L.first->next = P;
@@ -24,7 +24,7 @@ void insertAfterBis(ListBis &L, adrBis Prec, adrBis P){
 
 void deleteLastBis(ListBis &L, adrBis &P){
     adrBis Q = L.first;
-    if(isEmpty(L)){
+    if(isEmptyBis(L)){
         P = nullptr;
     }else if(L.first->next == nullptr){
         P = L.first;
@@ -50,7 +50,7 @@ void displayBis(ListBis L){
     }
 }
 
-bool isEmpty(ListBis L){
+bool isEmptyBis(ListBis L){
     return L.first == nullptr;
 }
 
@@ -121,7 +121,7 @@ void adminInsertAfterBis(ListBis &L) {
 void adminDeleteLastBis(ListBis &L) {
     cout << "\n=== DELETE LAST BIS ===\n";
 
-    if (isEmpty(L)) {
+    if (isEmptyBis(L)) {
         cout << "Tidak ada bis yang bisa dihapus. List kosong!\n";
         return;
     }
