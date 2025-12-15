@@ -196,7 +196,7 @@ void adminDeleteAfterPenumpang(ListBis &L) {
 }
 
 void hitungRataRataPenumpang(ListBis L) {
-    float hasil;
+    int hasil;
    adrBis bis;
    int jumlahPenumpang, totalPenumpang, totalBis;
     if (isEmptyBis(L)) {

@@ -40,13 +40,19 @@ void deleteLastBis(ListBis &L, adrBis &P){
 
 void displayBis(ListBis L){
     adrBis P = L.first;
-    while (P != nullptr){
-        cout << "ID Bis      : " << P->info.idBis << endl;
-        cout << "Kapasitas   : " << P->info.kapasitas << endl;
-        cout << "Tujuan      : " << P->info.tujuan << endl;
-        cout << "-----------------------------" << "\n" << endl;
+    cout << "\n=========== DATA BIS ===========\n";
+    if(P == nullptr){
+        cout << "Tidak ada bis\n";
+        cout << "================\n";
+    }else{
+        while (P != nullptr){
+            cout << "|ID Bis      : " << P->info.idBis << endl;
+            cout << "|Kapasitas   : " << P->info.kapasitas << endl;
+            cout << "|Tujuan      : " << P->info.tujuan << endl;
+            cout << "================================\n" << endl;
 
-        P = P->next;
+            P = P->next;
+        }
     }
 }
 
@@ -71,24 +77,54 @@ void bisMasihKosong(ListBis L){
     }
 }
 
-void bisPenumpangTerbanyak(ListBis L){
+void bisPenumpangTerbanyak(ListBis L) {
+    if (L.first == nullptr) {
+        cout << "Tidak ada bis dalam list.\n";
+        return;
+    }
+
     adrBis p = L.first;
     adrBis maxBis = p;
     int maxCount = countPenumpang(p->firstPenumpang);
-    int c = countPenumpang(p->firstPenumpang);
 
+    p = p->next;
+    while (p != nullptr) {
+        int c = countPenumpang(p->firstPenumpang);
+        if (c > maxCount) {
+            maxCount = c;
+            maxBis = p;
+        }
+        p = p->next;
+    }
+
+    cout << "Bis dengan penumpang terbanyak adalah ID bis "
+         << maxBis->info.idBis
+         << " dengan " << maxCount << " penumpang\n";
+}
+
+void bisPenumpangTerkecil(ListBis L) {
     if (L.first == nullptr) {
         cout << "Tidak ada bis dalam list.\n";
-    }else{
-        while (p != nullptr) {
-            if (c > maxCount) {
-                maxCount = c;
-                maxBis = p;
-            }
-            p = p->next;
-        }
-        cout << "Bis dengan penumpang terbanyak adalah id bis" << maxBis->info.idBis << " dengan penumpang " << maxCount << " penumpang" << endl;
+        return;
     }
+
+    adrBis p = L.first;
+    adrBis minBis = p;
+    int minCount = countPenumpang(p->firstPenumpang);
+
+    p = p->next;
+    while (p != nullptr) {
+        int c = countPenumpang(p->firstPenumpang);
+        if (c < minCount) {
+            minCount = c;
+            minBis = p;
+        }
+        p = p->next;
+    }
+
+    cout << "Bis dengan penumpang paling sedikit adalah ID bis "
+         << minBis->info.idBis
+         << " dengan " << minCount << " penumpang\n";
 }
 
 void adminInsertFirstBis(ListBis &L) {
@@ -129,28 +165,6 @@ void adminDeleteLastBis(ListBis &L) {
     adrBis P;
     deleteLastBis(L, P);
     cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
-}
-
-void bisPenumpangTerkecil(ListBis L){
-    adrBis p = L.first;
-    adrBis minBis = p;
-    int minCount = countPenumpang(p->firstPenumpang);
-
-    int c = countPenumpang(p->firstPenumpang);
-      if (L.first == nullptr) {
-        cout << "Tidak ada bis dalam list.\n";
-        return;
-    }else{
-        while (p != nullptr) {
-            if (c < minCount) {
-                minCount = c;
-                minBis = p;
-            }
-            p = p->next;
-        }
-
-        cout << "Bis dengan penumpang paling sedikit adalah id bis " << minBis->info.idBis << " dengan penumpang " << minCount << " penumpang" << endl;
-    }
 }
 
 bool isFullKapasitas(adrBis L){

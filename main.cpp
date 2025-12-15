@@ -4,6 +4,10 @@ using namespace std;
 
 int main()
 {
+    ListBis L;
+    createListBis(L);
+    loadDummyData(L);
+
     int pilihan = 0;
     while (pilihan != 3) {
         system("cls");
@@ -19,10 +23,10 @@ int main()
 
         switch (pilihan) {
             case 1:
-                menuAdmin();
+                menuAdmin(L);
                 break;
             case 2:
-                menuUser();
+                menuUser(L);
                 break;
             case 3:
                 cout << "Terima kasih! Program selesai.\n";

@@ -3,10 +3,9 @@
 #include "main.h"
 using namespace std;
 
-void menuAdmin() {
+void menuAdmin(ListBis &L) {
     int pilihan;
     pilihan = 0;
-    ListBis L;
     system("cls");
     while (pilihan != 17) {
 
