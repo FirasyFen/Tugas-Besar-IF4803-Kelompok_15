@@ -3,12 +3,10 @@
 #include "main.h"
 using namespace std;
 
-void menuUser() {  // Terima parameter ListBis
+void menuUser(ListBis &L){
     int pilihan = 0;
     string id, rute;
-    ListBis L;
     system("cls");
-    loadDummyData(L);
     while (pilihan != 7) {
         cout << "\n========================================\n";
         cout << "               MENU USER                  \n";

@@ -52,12 +52,11 @@ void adminDeleteFirstBis(ListBis &L);
 void adminDeleteLastBis(ListBis &L);
 void adminDeleteAfterBis(ListBis &L);
 adrBis inputBisData();
-
-
 adrPenumpang createElemenPenumpang(string nama, string idtiket);
 void insertPenumpangFirst(adrBis &L, adrPenumpang p);
 void insertPenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang p);
 void insertPenumpangLast(adrBis &L,  adrPenumpang p);
+void deletePenumpang(ListBis &L, adrBis B, adrPenumpang &P);
 void deletePenumpangFirst(adrBis &L, adrPenumpang &p);
 void deletePenumpangAfter(adrBis &L, adrPenumpang prec, adrPenumpang &p);
 void deletePenumpangLast(adrBis &L, adrPenumpang &p);
@@ -75,7 +74,7 @@ void adminDeleteFirstPenumpang(ListBis &L);
 void adminDeleteLastPenumpang(ListBis &L);
 void adminDeleteAfterPenumpang(ListBis &L);
 adrPenumpang inputDataPenumpang();
-adrBis  userFindBisByTujuan(ListBis L);
+adrBis userFindBisByTujuan(ListBis L);
 adrBis userFindBisById(ListBis L);
 void totalKursiKosong(ListBis L);
 void bisMasihKosong(ListBis L);
@@ -83,8 +82,8 @@ void bisPenumpangTerbanyak(ListBis L);
 void bisPenumpangTerkecil(ListBis L);
 void penumpangPindahBis(ListBis &L);
 bool isFullKapasitas(adrBis L);
-void menuUser();
-void menuAdmin();
+void menuUser(ListBis &L);
+void menuAdmin(ListBis &L);
 void hitungRataRataPenumpang(ListBis L);
 
 void loadDummyData(ListBis &L);

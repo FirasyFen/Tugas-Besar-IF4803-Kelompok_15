@@ -44,6 +44,25 @@ void deletePenumpangLast(adrBis &L, adrPenumpang &p){
     }
 }
 
+void deletePenumpang(ListBis &L, adrBis B, adrPenumpang &P) {
+    if (B != nullptr && P != nullptr) {
+
+        if (P->prev == nullptr) {
+            B->firstPenumpang = P->next;
+            if (P->next != nullptr) {
+                P->next->prev = nullptr;
+            }
+        } else {
+            P->prev->next = P->next;
+            if (P->next != nullptr) {
+                P->next->prev = P->prev;
+            }
+        }
+        P->next = nullptr;
+        P->prev = nullptr;
+    }
+}
+
 void displayPenumpang(adrPenumpang L){
     adrPenumpang p = L;
     while (p != nullptr) {
@@ -55,6 +74,38 @@ void displayPenumpang(adrPenumpang L){
 
 bool isEmptyPenumpang(adrBis L){
     return L->firstPenumpang == nullptr;
+}
+
+void penumpangPindahBis(ListBis &L){
+    string idTiket, idBisTujuan;
+
+    cout << "Masukkan ID Tiket Penumpang : ";
+    cin >> idTiket;
+    cout << "Masukkan ID Bis Tujuan      : ";
+    cin >> idBisTujuan;
+
+    adrBis bisAsal = nullptr;
+    adrBis bisTujuan = findBisById(L, idBisTujuan);
+    adrPenumpang P = nullptr;
+
+    adrBis B = L.first;
+    while (B != nullptr && bisAsal == nullptr) {
+        adrPenumpang Q = searchPenumpang(B->firstPenumpang, idTiket);
+        if (Q != nullptr) {
+            bisAsal = B;
+            P = Q;
+        }
+        B = B->next;
+    }
+
+    if (bisAsal == nullptr || bisTujuan == nullptr || P == nullptr) {
+        cout << "Data tidak ditemukan!\n";
+    } else {
+        deletePenumpang(L, bisAsal, P);
+        insertPenumpangLast(bisTujuan, P);
+
+        cout << "Penumpang berhasil dipindahkan ke bis tujuan.\n";
+    }
 }
 
 void adminInsertFirstPenumpang(ListBis &L){
