@@ -4,10 +4,9 @@
 using namespace std;
 
 void menuUser(ListBis &L){
-    int pilihan = 0;
-    string id, rute;
+    string id, rute, pilihan;
     system("cls");
-    while (pilihan != 7) {
+    while (pilihan != "7") {
         cout << "\n========================================\n";
         cout << "               MENU USER                  \n";
         cout << "========================================\n";
@@ -23,19 +22,19 @@ void menuUser(ListBis &L){
         cout << "Pilih Menu: ";
         cin >> pilihan;
 
-         if (pilihan == 1){
+        if (pilihan == "1"){
               userFindBisByTujuan(L);
-       }else if(pilihan == 2){
+       }else if(pilihan == "2"){
              userFindBisById(L);
-       }else if(pilihan == 3){
+       }else if(pilihan == "3"){
                bisMasihKosong(L);
-       }else if(pilihan == 4){
+       }else if(pilihan == "4"){
                 bisPenumpangTerbanyak(L);
-       }else if(pilihan == 5){
+       }else if(pilihan == "5"){
                 bisPenumpangTerkecil(L);
-       }else if(pilihan == 6){
+       }else if(pilihan == "6"){
                 hitungRataRataPenumpang(L);
-       }else if(pilihan == 7){
+       }else if(pilihan == "7"){
               cout << "Kembali ke menu utama...\n";
        }else
            cout << "Pilihan tidak valid!\n";
