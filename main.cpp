@@ -6,7 +6,6 @@ int main()
 {
     ListBis L;
     createListBis(L);
-    loadDummyData(L);
 
     string pilihan;
     system("cls");
