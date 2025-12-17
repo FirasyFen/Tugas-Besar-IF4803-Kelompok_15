@@ -31,7 +31,7 @@ void deleteLastBis(ListBis &L, adrBis &P){
         L.first = nullptr;
     }else{
         while (Q->next->next != nullptr){
-            Q->next = Q;
+            Q = Q->next;
         }
         P = Q->next;
         Q->next = nullptr;

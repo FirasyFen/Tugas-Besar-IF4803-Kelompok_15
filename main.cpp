@@ -9,8 +9,8 @@ int main()
     loadDummyData(L);
 
     int pilihan = 0;
+    system("cls");
     while (pilihan != 3) {
-        system("cls");
         cout << "\n========================================\n";
         cout << "          MENU UTAMA                   \n";
         cout << "========================================\n";
@@ -20,7 +20,6 @@ int main()
         cout << "========================================\n";
         cout << "Pilih Menu: ";
         cin >> pilihan;
-
         switch (pilihan) {
             case 1:
                 menuAdmin(L);
