@@ -5,6 +5,7 @@ using namespace std;
 
 void menuAdmin(ListBis &L) {
     int pilihan;
+    string idBis, idTiket;
     pilihan = 0;
     system("cls");
     while (pilihan != 17) {
@@ -39,48 +40,33 @@ void menuAdmin(ListBis &L) {
         cout << "Pilih Menu: ";
         cin >> pilihan;
 
-        switch (pilihan) {
-            case 1:
-                adminInsertFirstBis(L);
-                break;
-            case 2:
-                adminInsertLastBis(L);
-                break;
-            case 3:
-                adminInsertAfterBis(L);
-                break;
-            case 4:
+        if (pilihan == 1){
+              adminInsertFirstBis(L);
+       }else if(pilihan == 2){
+              adminInsertLastBis(L);
+       }else if(pilihan == 3){
+               adminInsertAfterBis(L);
+       }else if(pilihan == 4){
                 adminDeleteFirstBis(L);
-                break;
-            case 5:
+       }else if(pilihan == 5){
                 adminDeleteLastBis(L);
-                break;
-            case 6:
-                adminDeleteAfterBis(L);
-                break;
-            case 7:
-                adminInsertFirstPenumpang(L);
-                break;
-            case 8:
-                adminInsertLastPenumpang(L);
-                break;
-            case 9:
+       }else if(pilihan == 6){
+               adminDeleteAfterBis(L);
+       }else if(pilihan == 7){
+              adminInsertFirstPenumpang(L);
+       }else if(pilihan == 8){
+               adminInsertLastPenumpang(L);
+       }else if(pilihan == 9){
                 adminInsertAfterPenumpang(L);
-                break;
-            case 10:
+       }else if(pilihan == 10){
                 adminDeleteFirstPenumpang(L);
-                break;
-            case 11:
+       }else if(pilihan == 11){
                 adminDeleteLastPenumpang(L);
-                break;
-            case 12:
-                adminDeleteAfterPenumpang(L);
-                break;
-            case 13:
-                displayBis(L);
-                break;
-            case 14: {
-                string idBis;
+       }else if(pilihan == 12){
+                 adminDeleteAfterPenumpang(L);
+       }else if(pilihan == 13){
+                 displayBis(L);
+       }else if(pilihan == 14){
                     displayBis(L);
                 cout << "Masukkan ID Bis: ";
                 cin >> idBis;
@@ -88,20 +74,14 @@ void menuAdmin(ListBis &L) {
                 if (bis != nullptr) {
                     displayPenumpang(bis->firstPenumpang);
                 }
-                break;
-            }
-            case 15: {
-                string idBis;
+       }else if(pilihan == 15){
                 cout << "Masukkan ID Bis: ";
                 cin >> idBis;
                 adrBis hasil = findBisById(L, idBis);
                 if (hasil != nullptr) {
                     cout << "Bis ditemukan: " << hasil->info.idBis << endl;
                 }
-                break;
-            }
-            case 16: {
-                string idBis, idTiket;
+       }else if(pilihan == 16){
                 cout << "Masukkan ID Bis: ";
                 cin >> idBis;
                 cout << "Masukkan ID Tiket: ";
@@ -113,15 +93,9 @@ void menuAdmin(ListBis &L) {
                         cout << "Penumpang ditemukan: " << hasil->info.nama << endl;
                     }
                 }
-                break;
-            }
-            case 17:
-                cout << "Kembali ke menu utama...\n";
-                break;
-            default:
-                cout << "Pilihan tidak valid!\n";
-                break;
-        }
-
-    }
+       }else if(pilihan == 17){
+              cout << "Kembali ke menu utama...\n";
+       }else
+           cout << "Pilihan tidak valid!\n";
+       }
 }

@@ -20,20 +20,15 @@ int main()
         cout << "========================================\n";
         cout << "Pilih Menu: ";
         cin >> pilihan;
-        switch (pilihan) {
-            case 1:
-                menuAdmin(L);
-                break;
-            case 2:
-                menuUser(L);
-                break;
-            case 3:
-                cout << "Terima kasih! Program selesai.\n";
-                break;
-            default:
-                cout << "Pilihan tidak valid!\n";
-                break;
-        }
-    }
+
+       if (pilihan == 1){
+              menuAdmin(L);
+       }else if(pilihan == 2){
+              menuUser(L);
+       }else if(pilihan == 3){
+              cout << "Terima kasih! Program selesai.\n";
+       }else
+           cout << "Pilihan tidak valid!\n";
+       }
     return 0;
 }

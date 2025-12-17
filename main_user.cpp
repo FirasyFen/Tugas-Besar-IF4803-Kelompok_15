@@ -23,34 +23,24 @@ void menuUser(ListBis &L){
         cout << "Pilih Menu: ";
         cin >> pilihan;
 
-        switch (pilihan) {
-            case 1:
-                userFindBisByTujuan(L);
-                break;
-            case 2:
-                userFindBisById(L);
-                break;
-            case 3:
-                bisMasihKosong(L);
-                break;
-            case 4:
+         if (pilihan == 1){
+              userFindBisByTujuan(L);
+       }else if(pilihan == 2){
+             userFindBisById(L);
+       }else if(pilihan == 3){
+               bisMasihKosong(L);
+       }else if(pilihan == 4){
                 bisPenumpangTerbanyak(L);
-                break;
-            case 5:
+       }else if(pilihan == 5){
                 bisPenumpangTerkecil(L);
-                break;
-            case 6:
+       }else if(pilihan == 6){
                 hitungRataRataPenumpang(L);
-                break;
-            case 7:
-                cout << "Kembali ke menu utama...\n";
-                return;
-            default:
-                cout << "Pilihan tidak valid!\n";
-                break;
-        }
+       }else if(pilihan == 7){
+              cout << "Kembali ke menu utama...\n";
+       }else
+           cout << "Pilihan tidak valid!\n";
+       }
     }
-}
 
 void loadDummyData(ListBis &L) {
     /* ====== DUMMY BIS ====== */
