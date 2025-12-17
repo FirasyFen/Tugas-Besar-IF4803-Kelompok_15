@@ -86,7 +86,7 @@ adrBis findBisByTujuan(ListBis L, string tujuan) {
 void adminInsertLastBis(ListBis &L) {
     adrBis P;
     cout << "\n=== INSERT LAST BIS ===\n";
-    P = inputBisData();
+    P = inputBisData(L);
     insertLastBis(L, P);
     cout << "\nBis " << P->info.idBis << " berhasil ditambahkan di akhir!\n";
 }
@@ -127,17 +127,25 @@ void adminDeleteAfterBis(ListBis &L) {
     cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
 }
 
-adrBis inputBisData() {
+adrBis inputBisData(ListBis L) {
     string id, tujuan;
+    bool idb = false;
     adrBis P;
     int kapasitas;
-    cout << "ID Bis     : ";
-    cin >> id;
-    cout << "Kapasitas  : ";
-    cin >> kapasitas;
-    cout << "Tujuan     : ";
-    cin >> tujuan;
-    P = createElmBis(id, kapasitas, tujuan);
+    while(idb == false){
+        cout << "ID Bis     : ";
+        cin >> id;
+        if (findBisById(L, id) != nullptr){
+            cout << "======Id bis sudah terambil Masukkan id yang berbeda========\n";
+        }else{
+            cout << "Kapasitas  : ";
+            cin >> kapasitas;
+            cout << "Tujuan     : ";
+            cin >> tujuan;
+            P = createElmBis(id, kapasitas, tujuan);
+            idb = true;
+        }
+    }
     return P;
 }
 

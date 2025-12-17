@@ -130,7 +130,7 @@ void bisPenumpangTerkecil(ListBis L) {
 void adminInsertFirstBis(ListBis &L) {
     adrBis P;
     cout << "\n=== INSERT FIRST BIS ===\n";
-    P = inputBisData();
+    P = inputBisData(L);
     insertFirstBis(L, P);
     cout << "\nBis " << P->info.idBis << " berhasil ditambahkan di awal!\n";
 }
@@ -149,7 +149,7 @@ void adminInsertAfterBis(ListBis &L) {
         return;
     }
     cout << "\n-- Data Bis Baru --\n";
-    P = inputBisData();
+    P = inputBisData(L);
     insertAfterBis(L, Prec, P);
     cout << "\nBis " << P->info.idBis << " berhasil ditambahkan!\n";
 }

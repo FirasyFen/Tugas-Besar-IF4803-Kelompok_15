@@ -6,6 +6,7 @@ using namespace std;
 void menuUser(ListBis &L){
     string id, rute, pilihan;
     system("cls");
+    loadDummyData(L);
     while (pilihan != "7") {
         cout << "\n========================================\n";
         cout << "               MENU USER                  \n";
