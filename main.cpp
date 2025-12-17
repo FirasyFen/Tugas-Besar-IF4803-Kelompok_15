@@ -8,9 +8,9 @@ int main()
     createListBis(L);
     loadDummyData(L);
 
-    int pilihan = 0;
+    string pilihan;
     system("cls");
-    while (pilihan != 3) {
+    while (pilihan != "3") {
         cout << "\n========================================\n";
         cout << "          MENU UTAMA                   \n";
         cout << "========================================\n";
@@ -21,11 +21,11 @@ int main()
         cout << "Pilih Menu: ";
         cin >> pilihan;
 
-       if (pilihan == 1){
+       if (pilihan == "1"){
               menuAdmin(L);
-       }else if(pilihan == 2){
+       }else if(pilihan == "2"){
               menuUser(L);
-       }else if(pilihan == 3){
+       }else if(pilihan == "3"){
               cout << "Terima kasih! Program selesai.\n";
        }else
            cout << "Pilihan tidak valid!\n";

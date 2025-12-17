@@ -4,11 +4,9 @@
 using namespace std;
 
 void menuAdmin(ListBis &L) {
-    int pilihan;
-    string idBis, idTiket;
-    pilihan = 0;
+    string idBis, idTiket, pilihan;
     system("cls");
-    while (pilihan != 17) {
+    while (pilihan != "17") {
 
         cout << "\n========================================\n";
         cout << "          MENU ADMIN - BIS            \n";
@@ -40,33 +38,33 @@ void menuAdmin(ListBis &L) {
         cout << "Pilih Menu: ";
         cin >> pilihan;
 
-        if (pilihan == 1){
+        if (pilihan == "1"){
               adminInsertFirstBis(L);
-       }else if(pilihan == 2){
+       }else if(pilihan == "2"){
               adminInsertLastBis(L);
-       }else if(pilihan == 3){
+       }else if(pilihan == "3"){
                adminInsertAfterBis(L);
-       }else if(pilihan == 4){
+       }else if(pilihan == "4"){
                 adminDeleteFirstBis(L);
-       }else if(pilihan == 5){
+       }else if(pilihan == "5"){
                 adminDeleteLastBis(L);
-       }else if(pilihan == 6){
+       }else if(pilihan == "6"){
                adminDeleteAfterBis(L);
-       }else if(pilihan == 7){
+       }else if(pilihan == "7"){
               adminInsertFirstPenumpang(L);
-       }else if(pilihan == 8){
+       }else if(pilihan == "8"){
                adminInsertLastPenumpang(L);
-       }else if(pilihan == 9){
+       }else if(pilihan == "9"){
                 adminInsertAfterPenumpang(L);
-       }else if(pilihan == 10){
+       }else if(pilihan == "10"){
                 adminDeleteFirstPenumpang(L);
-       }else if(pilihan == 11){
+       }else if(pilihan == "11"){
                 adminDeleteLastPenumpang(L);
-       }else if(pilihan == 12){
+       }else if(pilihan == "12"){
                  adminDeleteAfterPenumpang(L);
-       }else if(pilihan == 13){
+       }else if(pilihan == "13"){
                  displayBis(L);
-       }else if(pilihan == 14){
+       }else if(pilihan == "14"){
                     displayBis(L);
                 cout << "Masukkan ID Bis: ";
                 cin >> idBis;
@@ -74,14 +72,14 @@ void menuAdmin(ListBis &L) {
                 if (bis != nullptr) {
                     displayPenumpang(bis->firstPenumpang);
                 }
-       }else if(pilihan == 15){
+       }else if(pilihan == "15"){
                 cout << "Masukkan ID Bis: ";
                 cin >> idBis;
                 adrBis hasil = findBisById(L, idBis);
                 if (hasil != nullptr) {
                     cout << "Bis ditemukan: " << hasil->info.idBis << endl;
                 }
-       }else if(pilihan == 16){
+       }else if(pilihan == "16"){
                 cout << "Masukkan ID Bis: ";
                 cin >> idBis;
                 cout << "Masukkan ID Tiket: ";
@@ -93,7 +91,7 @@ void menuAdmin(ListBis &L) {
                         cout << "Penumpang ditemukan: " << hasil->info.nama << endl;
                     }
                 }
-       }else if(pilihan == 17){
+       }else if(pilihan == "17"){
               cout << "Kembali ke menu utama...\n";
        }else
            cout << "Pilihan tidak valid!\n";
