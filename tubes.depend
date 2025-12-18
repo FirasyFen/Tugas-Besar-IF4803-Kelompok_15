@@ -18,32 +18,32 @@
 	"main.h"
 	<iostream>
 
-1765990587 c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\main.h
+1766036105 c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\main.h
 	"string"
 
-1765990921 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\main.cpp
+1766039330 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\main.cpp
 	<iostream>
 	"main.h"
 
-1765989166 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\main_admin.cpp
-	<iostream>
-	<string>
-	"main.h"
-
-1765990926 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\main_user.cpp
+1766038111 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\main_admin.cpp
 	<iostream>
 	<string>
 	"main.h"
 
-1765814206 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\penumpang_103012400222.cpp
+1766039704 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\main_user.cpp
+	<iostream>
+	<string>
+	"main.h"
+
+1766037837 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\penumpang_103012400222.cpp
 	<iostream>
 	"main.h"
 
-1765990850 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\bis_103012400366.cpp
+1765990998 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\bis_103012400366.cpp
 	"main.h"
 	<iostream>
 
-1765817298 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\penumpang_103012400366.cpp
+1766036515 source:c:\kuliah\ngoding\c++\github-repo\tugas-besar-if4803-kelompok_15\penumpang_103012400366.cpp
 	<iostream>
 	"main.h"
 

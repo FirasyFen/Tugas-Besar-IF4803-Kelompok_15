@@ -6,8 +6,7 @@ using namespace std;
 void menuUser(ListBis &L){
     string id, rute, pilihan;
     system("cls");
-    loadDummyData(L);
-    while (pilihan != "7") {
+    while (pilihan != "10") {
         cout << "\n========================================\n";
         cout << "               MENU USER                  \n";
         cout << "========================================\n";
@@ -17,26 +16,59 @@ void menuUser(ListBis &L){
         cout << "4.  Cek Bis Terpadat ID\n";
         cout << "5.  Cek Bis Tersepi ID\n";
         cout << "6.  Cek rata-rata penumpang bis\n";
+        cout << "7.  Insert Bis dengan kondisi\n";
+        cout << "8.  Tampilkan data bis\n";
+        cout << "9.  Add data dummy\n";
         cout << "----------------------------------------\n";
-        cout << "7. Kembali ke Menu Utama\n";
+        cout << "10. Kembali ke Menu Utama\n";
         cout << "========================================\n";
         cout << "Pilih Menu: ";
         cin >> pilihan;
 
-        if (pilihan == "1"){
-              userFindBisByTujuan(L);
+       if (pilihan == "1"){
+            userFindBisByTujuan(L);
        }else if(pilihan == "2"){
-             userFindBisById(L);
+            userFindBisById(L);
        }else if(pilihan == "3"){
-               bisMasihKosong(L);
+            bisMasihKosong(L);
        }else if(pilihan == "4"){
-                bisPenumpangTerbanyak(L);
+            bisPenumpangTerbanyak(L);
        }else if(pilihan == "5"){
-                bisPenumpangTerkecil(L);
+            bisPenumpangTerkecil(L);
        }else if(pilihan == "6"){
-                hitungRataRataPenumpang(L);
+            hitungRataRataPenumpang(L);
        }else if(pilihan == "7"){
-              cout << "Kembali ke menu utama...\n";
+            string id, tujuan;
+            bool idb = false;
+            int kapasitas;
+            adrBis P;
+            while(idb == false){
+                cout << "ID Bis     : ";
+                cin >> id;
+                if (findBisById(L, id) != nullptr){
+                    cout << "======Id bis sudah terambil Masukkan id yang berbeda========\n";
+                }else{
+                    cout << "Kapasitas  : ";
+                    cin >> kapasitas;
+                    cout << "Tujuan     : ";
+                    cin >> tujuan;
+                    P = createElmBis(id, kapasitas, tujuan);
+                    idb = true;
+                }
+            }
+            if(P->info.kapasitas > 15){
+                insertLastBis(L, P);
+            }else{
+                insertFirstBis(L,P);
+            }
+       }else if(pilihan == "8"){
+            displayBis(L);
+       }else if(pilihan == "9"){
+            loadDummyData(L);
+            cout << "Data dummy sudah terinput\n";
+       }else if(pilihan == "10"){
+            cout << "Kembali ke menu utama...\n";
+            system("cls");
        }else
            cout << "Pilihan tidak valid!\n";
        }
@@ -44,11 +76,11 @@ void menuUser(ListBis &L){
 
 void loadDummyData(ListBis &L) {
     /* ====== DUMMY BIS ====== */
-    adrBis A = createElmBis("B001", 5, "Jakarta");
-    adrBis B = createElmBis("B002", 4, "Bandung");
-    adrBis C = createElmBis("B003", 6, "Yogyakarta");
-    adrBis D = createElmBis("B004", 8, "Surabaya");
-    adrBis E = createElmBis("B005", 10, "Bali");
+    adrBis A = createElmBis("B001", 25, "Jakarta");
+    adrBis B = createElmBis("B002", 6, "Bandung");
+    adrBis C = createElmBis("B003", 8, "Yogyakarta");
+    adrBis D = createElmBis("B004", 9, "Surabaya");
+    adrBis E = createElmBis("B005", 30, "Bali");
 
     insertLastBis(L, A);
     insertLastBis(L, B);
