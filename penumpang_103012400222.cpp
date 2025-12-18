@@ -46,25 +46,6 @@ void deletePenumpangLast(adrBis &L, adrPenumpang &p){
     }
 }
 
-void deletePenumpang(ListBis &L, adrBis B, adrPenumpang &P) {
-    if (B != nullptr && P != nullptr) {
-
-        if (P->prev == nullptr) {
-            B->firstPenumpang = P->next;
-            if (P->next != nullptr) {
-                P->next->prev = nullptr;
-            }
-        } else {
-            P->prev->next = P->next;
-            if (P->next != nullptr) {
-                P->next->prev = P->prev;
-            }
-        }
-        P->next = nullptr;
-        P->prev = nullptr;
-    }
-}
-
 void displayPenumpang(adrPenumpang L){
     adrPenumpang p = L;
     cout << "\n========== DATA PENUMPANG ===========\n";
@@ -91,10 +72,10 @@ void adminInsertFirstPenumpang(ListBis &L){
                 if (B == nullptr){
                     cout << "Bis tidak ditemukan!\n";
                 }else {
-                        adrPenumpang P = inputDataPenumpang(B);
-                        insertPenumpangFirst(B, P);
+                    adrPenumpang P = inputDataPenumpang(B);
+                    insertPenumpangFirst(B, P);
                     cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di awal!\n";
-                    }
+                }
         }else{
         cout << "Bis penuh" <<endl;
     }

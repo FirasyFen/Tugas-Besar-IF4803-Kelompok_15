@@ -43,7 +43,7 @@ void displayBis(ListBis L){
     cout << "\n=========== DATA BIS ===========\n";
     if(P == nullptr){
         cout << "Tidak ada bis\n";
-        cout << "================\n";
+        cout << "==============================\n";
     }else{
         while (P != nullptr){
             cout << "|ID Bis      : " << P->info.idBis << endl;
