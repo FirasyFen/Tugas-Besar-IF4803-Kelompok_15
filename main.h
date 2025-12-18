@@ -73,7 +73,7 @@ void adminInsertAfterPenumpang(ListBis &L);
 void adminDeleteFirstPenumpang(ListBis &L);
 void adminDeleteLastPenumpang(ListBis &L);
 void adminDeleteAfterPenumpang(ListBis &L);
-adrPenumpang inputDataPenumpang(ListBis L);
+adrPenumpang inputDataPenumpang(adrBis L);
 adrBis userFindBisByTujuan(ListBis L);
 adrBis userFindBisById(ListBis L);
 void totalKursiKosong(ListBis L);
