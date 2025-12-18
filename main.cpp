@@ -4,11 +4,11 @@ using namespace std;
 
 int main()
 {
-    ListBis L;
-    createListBis(L);
-
+    ListBis ListUser;
+    ListBis ListAdmin;
+    createListBis(ListUser);
+    createListBis(ListAdmin);
     string pilihan;
-    system("cls");
     while (pilihan != "3") {
         cout << "\n========================================\n";
         cout << "          MENU UTAMA                   \n";
@@ -21,9 +21,9 @@ int main()
         cin >> pilihan;
 
        if (pilihan == "1"){
-              menuAdmin(L);
+              menuAdmin(ListAdmin);
        }else if(pilihan == "2"){
-              menuUser(L);
+              menuUser(ListUser);
        }else if(pilihan == "3"){
               cout << "Terima kasih! Program selesai.\n";
        }else

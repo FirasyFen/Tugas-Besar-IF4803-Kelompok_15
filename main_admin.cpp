@@ -7,7 +7,6 @@ void menuAdmin(ListBis &L) {
     string idBis, idTiket, pilihan;
     system("cls");
     while (pilihan != "17") {
-
         cout << "\n========================================\n";
         cout << "          MENU ADMIN - BIS            \n";
         cout << "========================================\n";
@@ -93,7 +92,8 @@ void menuAdmin(ListBis &L) {
                 }
        }else if(pilihan == "17"){
               cout << "Kembali ke menu utama...\n";
+              system("cls");
        }else
-           cout << "Pilihan tidak valid!\n";
+              cout << "Pilihan tidak valid!\n";
        }
 }

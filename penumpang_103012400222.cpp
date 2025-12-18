@@ -65,9 +65,12 @@ void deletePenumpang(ListBis &L, adrBis B, adrPenumpang &P) {
 
 void displayPenumpang(adrPenumpang L){
     adrPenumpang p = L;
+    cout << "\n========== DATA PENUMPANG ===========\n";
     while (p != nullptr) {
+        cout << "======================================\n";
         cout << "ID Tiket: " << p->info.idtiket << endl;
         cout << " Nama: " << p->info.nama << endl;
+        cout << "======================================\n";
         p = p->next;
     }
 }
