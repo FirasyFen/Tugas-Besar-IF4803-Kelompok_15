@@ -167,12 +167,6 @@ void adminDeleteLastBis(ListBis &L) {
     cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
 }
 
-bool isFullKapasitas(adrBis L){
-    if (L == nullptr){
-        return false;
-    }
-    return countPenumpang(L->firstPenumpang) >= L->info.kapasitas;
-}
 
 adrBis userFindBisByTujuan(ListBis L) {
     string tujuan;
