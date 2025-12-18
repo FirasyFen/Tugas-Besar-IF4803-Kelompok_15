@@ -128,7 +128,7 @@ void adminInsertLastPenumpang(ListBis &L) {
         cout << "Bis " << idBis << " tidak ditemukan!\n";
         return;
     }
-    adrPenumpang P = inputDataPenumpang(L);
+    adrPenumpang P = inputDataPenumpang(L.first);
     insertPenumpangLast(bis, P);
     cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di bis " << idBis << "!\n";
 }

@@ -119,11 +119,12 @@ void adminInsertFirstPenumpang(ListBis &L){
 
     adrBis B = findBisById(L, idBis);
 
+
     if (B == nullptr){
         cout << "Bis tidak ditemukan!\n";
     }
     else {
-        adrPenumpang P = inputDataPenumpang(L);
+        adrPenumpang P = inputDataPenumpang(B);
         insertPenumpangFirst(B, P);
         cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di awal!\n";
     }
@@ -153,7 +154,7 @@ void adminInsertAfterPenumpang(ListBis &L){
             cout << "Penumpang sebelumnya tidak ditemukan!\n";
         }
         else {
-            adrPenumpang P = inputDataPenumpang(L);
+            adrPenumpang P = inputDataPenumpang(L.first);
             insertPenumpangAfter(B, prec, P);
             cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di tengah!\n";
         }
@@ -181,14 +182,14 @@ void adminDeleteLastPenumpang(ListBis &L){
     }
 }
 
-adrPenumpang inputDataPenumpang(ListBis L){
+adrPenumpang inputDataPenumpang(adrBis L){
     string nama, idtiket;
     adrPenumpang p,temp;
     cout << "Nama: ";
     cin >> nama;
     cout << "ID Tiket: ";
     cin >> idtiket;
-    while (searchPenumpang(L.first->firstPenumpang, idtiket) != nullptr) {
+    while (searchPenumpang(L->firstPenumpang, idtiket) != nullptr) {
         cout << "======IdTiket sudah ada, masukkan IdTiket berbeda======\n";
         cout << "ID Tiket: ";
         cin >> idtiket;
