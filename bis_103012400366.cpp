@@ -149,17 +149,17 @@ adrBis inputBisData(ListBis L) {
     return P;
 }
 
-bool isFullBis(adrBis bis) {
-    if (bis == nullptr){
+bool isFullKapasitas(adrBis L) {
+    if (L == nullptr){
          return true;
     }
 
     int count = 0;
-    adrPenumpang temp = bis->firstPenumpang;
+    adrPenumpang temp = L->firstPenumpang;
     while (temp != nullptr) {
         count++;
         temp = temp->next;
     }
 
-    return (count == bis->info.kapasitas);
+    return (count == L->info.kapasitas);
 }

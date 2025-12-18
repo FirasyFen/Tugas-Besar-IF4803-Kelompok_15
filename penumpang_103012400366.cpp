@@ -124,13 +124,18 @@ void adminInsertLastPenumpang(ListBis &L) {
     cout << "Masukkan ID Bis: ";
     cin >> idBis;
     adrBis bis = findBisById(L, idBis);
-    if (bis == nullptr) {
-        cout << "Bis " << idBis << " tidak ditemukan!\n";
-        return;
+    if (!isFullKapasitas(bis)){
+                    if (bis == nullptr){
+                            cout << "Bis tidak ditemukan!\n";
+                    }else {
+                                adrPenumpang P = inputDataPenumpang(L.first);
+                                insertPenumpangLast(bis, P);
+                                cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di bis " << idBis << "!\n";
+                    }
+        }else{
+        cout << "Bis penuh" <<endl;
     }
-    adrPenumpang P = inputDataPenumpang(L.first);
-    insertPenumpangLast(bis, P);
-    cout << "\nPenumpang " << P->info.nama << " berhasil ditambahkan di bis " << idBis << "!\n";
+
 }
 
 void adminDeleteFirstPenumpang(ListBis &L) {
@@ -166,11 +171,9 @@ void adminDeleteAfterPenumpang(ListBis &L) {
     adrBis bis = findBisById(L, idBis);
     if (bis == nullptr) {
         cout << "Bis " << idBis << " tidak ditemukan!\n";
-        return;
     }
     if (bis->firstPenumpang == nullptr) {
         cout << "Tidak ada penumpang di bis " << idBis << "!\n";
-        return;
     }
 
     string idSebelum;
@@ -213,6 +216,6 @@ void hitungRataRataPenumpang(ListBis L) {
         totalBis++;
         bis = bis->next;
     }
-    hasil = (float)totalPenumpang / totalBis;
+    hasil = totalPenumpang / totalBis;
     cout << "Rata-rata penumpang setiap bis: " << hasil <<endl;
 }
