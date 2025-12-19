@@ -42,25 +42,23 @@ void deleteFirstBis(ListBis &L, adrBis &P){
 void deleteAfterBis(ListBis &L, adrBis Prec, adrBis &P) {
     if (isEmptyBis(L)) {
         P = nullptr;
-        cout << "List kosong" << endl;
+        return;
     }
 
     if (Prec == nullptr) {
         P = nullptr;
-        cout << "Prec tidak valid" << endl;
+        return;
     }
 
     if (Prec->next == nullptr) {
         P = nullptr;
-        cout << "Tidak ada elemen setelah Prec" << endl;
+        return;
     }
 
     P = Prec->next;
     Prec->next = P->next;
     P->next = nullptr;
-    cout << "Bis " << P->info.idBis << " berhasil dihapus" << endl;
 }
-
 adrBis findBisById(ListBis L, string idBis) {
     adrBis P = L.first;
     while (P != nullptr) {
@@ -107,6 +105,7 @@ void adminDeleteAfterBis(ListBis &L) {
 
     if (isEmptyBis(L)) {
         cout << "Tidak ada bis yang bisa dihapus. List kosong!\n";
+        return;
     }
 
     string idSebelum;
@@ -116,16 +115,20 @@ void adminDeleteAfterBis(ListBis &L) {
     adrBis Prec = findBisById(L, idSebelum);
     if (Prec == nullptr) {
         cout << "Bis " << idSebelum << " tidak ditemukan!\n";
+        return;
     }
 
     if (Prec->next == nullptr) {
         cout << "Tidak ada bis setelah " << idSebelum << "!\n";
+        return;
     }
 
     adrBis P;
     deleteAfterBis(L, Prec, P);
-    cout << "\nBis " << P->info.idBis << " berhasil dihapus!\n";
+
+    cout << "Bis " << P->info.idBis << " berhasil dihapus!\n";
 }
+
 
 adrBis inputBisData(ListBis L) {
     string id, tujuan;
